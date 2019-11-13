@@ -37,6 +37,7 @@
       var fullname = form["fullname"].value;
       var destination = form["destination"].value;
       var details = form["details"].value;
+      var url_upd = location.href;
       var user = {
           email: email, 
           name: fullname, 
@@ -48,7 +49,8 @@
           name: fullname
       });
       analytics.track('destination submitted', user, function() {
-          window.location.href = "";
+          window.location.href = "",
+          url = url_upd;
       });
     }
 </script>
