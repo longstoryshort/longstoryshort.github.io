@@ -45,10 +45,7 @@
           destination: destination, 
           details: details
       };
-      analytics.identify('1234', {
-          email: email, 
-          name: fullname
-      });
+     
       analytics.track('destination submitted', user, function() {
           
           url = location.href+"foo"
