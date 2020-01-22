@@ -47,7 +47,7 @@
           details: details
       };
      
-      analytics.track('destination submitted', user, function() {
+      analytics.identify(user, function() {
           
           url = location.href+"foo"
       });
