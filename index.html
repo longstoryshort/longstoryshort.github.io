@@ -29,6 +29,8 @@
     <br><br> 
     Email: <input name="email" required="" size="75" type="email"/> 
     <br><br>
+    UserId: <input name="userId" required="" size="75" type="userId"/> 
+    <br><br>
     <input name="submit" type="submit" value="submit"/>
 </form> 
 <script type="text/javascript">
@@ -39,6 +41,7 @@
       var fullname = form["fullname"].value;
       var destination = form["destination"].value;
       var details = form["details"].value;
+      var userId = form["userId"].value;
       
       var user = {
           email: email, 
@@ -47,10 +50,10 @@
           details: details
       };
      
-      analytics.identify(user, function() {
-          
-          url = location.href+"foo"
-      });
+      analytics.identify(userId, {
+            email: email, 
+            name: fullname
+        });
     }
 </script>
 </body> 
