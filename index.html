@@ -60,11 +60,12 @@ window.onload = function (){
           details: details
       };
      
-      analytics.identify(userId, {
+      analytics.identify( {
             email: email, 
             name: fullname,
             "integrations": {"Braze":false}
         });
+        
     analytics.track('Button Clicked', {
         userId: userId,
         name: fullname
