@@ -30,9 +30,7 @@
     <br><br> 
     Email: <input name="email" required="" size="75" type="email"/> 
     <br><br>
-    UserId: <input name="userId" required="" size="75" type="userId"/> 
-    <br><br>
-    <input name="submit" type="submit" value="submit"/>
+    
 </form> 
 <script type="text/javascript">
 /*
@@ -51,7 +49,7 @@ window.onload = function (){
       var fullname = form["fullname"].value;
       var destination = form["destination"].value;
       var details = form["details"].value;
-      var userId = form["userId"].value;
+      //var userId = form["userId"].value;
       
       var user = {
           email: email, 
@@ -69,7 +67,7 @@ window.onload = function (){
     analytics.track('Button Clicked LSS', {
         
         name: fullname,
-        email:email,
+        email: email,
         },
         {
             context: {
