@@ -10,7 +10,13 @@
         analytics.page({ "url":"https://longstoryshort.github.io/","s_boo":"foo"})
         }}();
     </script>
-    
+    <script>
+        analytics.ready(function(){
+            var newScript = document.createElement("script");
+            newScript.src = "http://static.chartbeat.com/js/chartbeat_mab.js";
+            target.appendChild(newScript);
+        })
+    </script>
     
 
 </head> 
@@ -42,7 +48,17 @@ window.onload = function (){
         name: 'donut!'
         })
     }
-*/    
+*/  
+
+window.onload = function () {
+    analytics.identify('12345qwerty', {
+    
+        name: 'donut!'
+        })
+    }
+ 
+</script>
+<script type="text/javascript">
     function identify(e){
       e.preventDefault();
       var form = e.target;
@@ -58,12 +74,12 @@ window.onload = function (){
           destination: destination, 
           details: details
       };
-     
+     /*
       analytics.identify( {
             email: email, 
             name: fullname
         });
-
+ */
     analytics.track('Button Clicked LSS', {
         
         name: fullname,
