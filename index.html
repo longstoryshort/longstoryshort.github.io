@@ -52,10 +52,27 @@ window.onload = function (){
 
 window.onload = function () {
     analytics.identify('12345qwerty', {
-    
         name: 'donut!'
         })
     }
+    analytics.track('Video Playback Started', {
+        session_id: "12345",
+        content_asset_ids: ["0129370"],
+        content_pod_ids: ["segA", "segB"],
+        ad_asset_id: ["ad123", "ad097"],
+        ad_pod_id: ["adSegA", "adSegB"],
+        ad_type: ["mid-roll", "post-roll"],
+        position: 0,
+        total_length: 392,
+        bitrate: 100,
+        framerate: 29.00,
+        video_player: "youtube",
+        sound: 88,
+        full_screen: false,
+        ad_enabled: true,
+        quality: "hd1080",
+        livestream: false
+    })
  
 </script>
 <script type="text/javascript">
