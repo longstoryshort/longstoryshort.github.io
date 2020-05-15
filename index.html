@@ -55,7 +55,7 @@ window.onload = function () {
         name: 'donut!'
         })
     }
-    analytics.track('Video Playback Started', {
+    /*analytics.track('Video Playback Started', {
         session_id: "12345",
         content_asset_ids: ["0129370"],
         content_pod_ids: ["segA", "segB"],
@@ -72,7 +72,10 @@ window.onload = function () {
         ad_enabled: true,
         quality: "hd1080",
         livestream: false
-    })
+    })*/
+    analytics.track('Array property event', {
+        array_prop: ["apple","banana","pear"],
+        string_prop: "apple, banana, pear"})
  
 </script>
 <script type="text/javascript">
