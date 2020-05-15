@@ -101,13 +101,12 @@ window.onload = function () {
             name: fullname
         });
  */
-    analytics.track('Button Clicked array-str', {
+    analytics.track("Button Clicked", {
         
         name: fullname,
         email: email,
-        category: "test GA events",
-        array_prop: ["array", "apple-a","banana-a","pear-a"],
-        string_prop: "string, apple-s, banana-s, pear-s"
+        array_prop: ["apple-a","banana-a","pear-a"],
+        string_prop: "apple-s, banana-s, pear-s"
         },
         {
             context: {
