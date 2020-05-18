@@ -29,8 +29,7 @@
 </head> 
 <body> 
     
-    <div id="target-container"> </div>
-    <script>
+    <div id="target-container">     <script>
         window.consentManagerConfig = function(exports) {
           var React = exports.React
           var inEU = exports.inEU
@@ -68,11 +67,12 @@
           }
         }
       </script>
-      
       <script
-        src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"
-        defer
-      ></script>
+      src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"
+      defer
+    ></script>
+      </div>
+      
 <h1>What is your favorite place to travel?</h1> 
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
