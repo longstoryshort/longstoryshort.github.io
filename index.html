@@ -16,7 +16,48 @@
         })
         }}();
     </script>
-   
+   <script>
+    window.consentManagerConfig = function(exports) {
+      var React = exports.React
+      var inEU = exports.inEU
+  
+      var bannerContent = React.createElement(
+        'span',
+        null,
+        'We use cookies (and other similar technologies) to collect data to improve your experience on our site. By using our website, you՚re agreeing to the collection of data as described in our',
+        ' ',
+        React.createElement(
+          'a',
+          { href: '/docs/legal/website-data-collection-policy/', target: '_blank' },
+          'Website Data Collection Policy'
+        ),
+        '.'
+      )
+      var bannerSubContent = 'You can change your preferences at any time.'
+      var preferencesDialogTitle = 'Website Data Collection Preferences'
+      var preferencesDialogContent =
+        'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
+      var cancelDialogTitle = 'Are you sure you want to cancel?'
+      var cancelDialogContent =
+        'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+  
+      return {
+        container: '#target-container',
+        writeKey: 'Ec8iixgxxjzpglKbxKjESW2JrkOko18y',
+        shouldRequireConsent: inEU,
+        bannerContent: bannerContent,
+        bannerSubContent: bannerSubContent,
+        preferencesDialogTitle: preferencesDialogTitle,
+        preferencesDialogContent: preferencesDialogContent,
+        cancelDialogTitle: cancelDialogTitle,
+        cancelDialogContent: cancelDialogContent
+      }
+    }
+  </script>
+   <script
+   src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"
+   defer
+ ></script>
    <script>
         /*analytics.ready(function(){
             var newScript = document.createElement("script");
@@ -29,49 +70,7 @@
 </head> 
 <body> 
     
-    <div id="target-container">     <script>
-        window.consentManagerConfig = function(exports) {
-          var React = exports.React
-          var inEU = exports.inEU
-      
-          var bannerContent = React.createElement(
-            'span',
-            null,
-            'We use cookies (and other similar technologies) to collect data to improve your experience on our site. By using our website, you՚re agreeing to the collection of data as described in our',
-            ' ',
-            React.createElement(
-              'a',
-              { href: '/docs/legal/website-data-collection-policy/', target: '_blank' },
-              'Website Data Collection Policy'
-            ),
-            '.'
-          )
-          var bannerSubContent = 'You can change your preferences at any time.'
-          var preferencesDialogTitle = 'Website Data Collection Preferences'
-          var preferencesDialogContent =
-            'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
-          var cancelDialogTitle = 'Are you sure you want to cancel?'
-          var cancelDialogContent =
-            'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
-      
-          return {
-            container: '#target-container',
-            writeKey: 'Ec8iixgxxjzpglKbxKjESW2JrkOko18y',
-            shouldRequireConsent: inEU,
-            bannerContent: bannerContent,
-            bannerSubContent: bannerSubContent,
-            preferencesDialogTitle: preferencesDialogTitle,
-            preferencesDialogContent: preferencesDialogContent,
-            cancelDialogTitle: cancelDialogTitle,
-            cancelDialogContent: cancelDialogContent
-          }
-        }
-      </script>
-      <script
-      src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"
-      defer
-    ></script>
-      </div>
+    <div id="target-container"></div>
       
 <h1>What is your favorite place to travel?</h1> 
 <p>I am building a directory of the sweetest travel destinations.</p>  
