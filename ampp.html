@@ -42,7 +42,7 @@
           <script type="application/json">
             {
               "requests": {
-                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=CLIENT_ID(ajs_anonymous_id)"
+                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=$amp_client_id"
               },
               "triggers": {
                 "trackPageview": {
@@ -66,7 +66,7 @@
         <amp-link-rewriter layout="nodisplay">
           <script type="application/json">
             {
-              "output": "http://longstoryshort.github.io/index.html?ajs_trait_ampid=$amp_client_id"
+              "output": "http://longstoryshort.github.io/index.html?ajs_trait_ampid=123"
               "attribute": {
                 "href": ".*",
             }
@@ -74,7 +74,7 @@
         </amp-link-rewriter>
         <br>
         <a
-        href="http://longstoryshort.github.io/index.html?ajs_trait_ampid=">Back</a>
+        href="http://longstoryshort.github.io/index.htm">Back</a>
        
 
 
