@@ -234,9 +234,21 @@ window.onload = function () {
         quality: "hd1080",
         livestream: false
     })*/
-    analytics.track('Array property event Device', {
+    analytics.track('Array property event Device', 
+    {
         array_prop: ["device array apple","device array banana","device array pear"],
-        string_prop: "device str apple, device str banana, device str pear"}
+        string_prop: "device str apple, device str banana, device str pear",
+        obj_arr_prop: [
+          {
+            "boo": 1, 
+            "foo": 2
+          },
+          {
+            "moo":
+            "moo-value"
+          }
+        ]
+    }
         )
     }
 </script>
