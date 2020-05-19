@@ -203,13 +203,15 @@ window.onload = function (){
 */  
 
 window.onload = function () {
-    analytics.page("LSS category","LSS page name", {
+  /*  
+  analytics.page("LSS category","LSS page name", {
             array_prop: ["apple","banana", "cherry"],
             string_prop: "apple, banana, cherry",
             video_count: 3,
             social_title: "LSS social title",
             session_id: "025a"
         })
+        */
     /*analytics.identify('12345qwerty', {
         name: 'donut!'
         })
@@ -232,9 +234,9 @@ window.onload = function () {
         quality: "hd1080",
         livestream: false
     })*/
-    analytics.track('Array property event', {
-        array_prop: ["apple","banana","pear"],
-        string_prop: "apple, banana, pear"})
+    analytics.track('Array property event Device', {
+        array_prop: ["device array apple","device array banana","device array pear"],
+        string_prop: "device str apple, device str banana, device str pear"})
  
 </script>
 <script type="text/javascript">
