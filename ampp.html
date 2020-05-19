@@ -60,8 +60,16 @@
           </script>
         </amp-analytics>
         <a href="http://longstoryshort.github.io/index.html">Orig page LSS</a>
-        AMP_ECID_GOOGLE
-        <a href="http://longstoryshort.github.io/index.html?ajs_trait_ampid">Orig page LSS</a>
+
+        <amp-link-rewriter layout="nodisplay">
+          <script type="application/json">
+            {
+              "output": "http://longstoryshort.github.io/index.html?ajs_trait_ampid=AMP_ECID_GOOGLE
+              
+            }
+          </script>
+        </amp-link-rewriter>
+       
 
 
   </body>
