@@ -235,21 +235,12 @@ window.onload = function () {
         livestream: false
     })*/
     analytics.track('Array property event Device', 
-    {
-        string_prop: "device str apple, device str banana, device str pear",
-        array_prop: [
-          {
-            "boo": 1, 
-            "foo": 2
-          },
-          {
-            "moo":
-            "moo-value"
-          }
-        ]
-    }
-        )
-    }
+        {
+        array_prop: ["device array apple","device array banana","device array pear"],
+        string_prop: "device str apple, device str banana, device str pear"
+        }
+    )
+  }
 </script>
 
 <script type="text/javascript">
