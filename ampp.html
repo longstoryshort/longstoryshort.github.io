@@ -33,6 +33,21 @@
           }
         </script>
         </amp-analytics>
+        <amp-analytics>
+          <script type="application/json">
+            {
+              "requests": {
+                "pageview": "https://api.segment.io/v1/pixel/track?data=eyJ3cml0ZUtleSI6ICJZT1VSX1dSSVRFX0tFWSIsICJ1c2VySWQiOiAiMDI1cGlrYWNodTAyNSIsICJldmVudCI6ICJFbWFpbCBPcGVuZWQiLCAicHJvcGVydGllcyI6IHsgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLCAgICJlbWFpbCI6ICJwZWVrQXRNZUBlbWFpbC5wb2tlIiB9fQ"
+              },
+              "triggers": {
+                "trackPageview": {
+                  "on": "visible",
+                  "request": "pageview"
+                }
+              }
+            }
+          </script>
+        </amp-analytics>
         <a href="http://longstoryshort.github.io/index.html">Orig page LSS</a>
 
   </body>
