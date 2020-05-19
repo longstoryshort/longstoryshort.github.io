@@ -40,13 +40,16 @@
           <script type="application/json">
             {
               "requests": {
-                "pageview": "https://api.segment.io/v1/pixel/page?data=OC0yNjJhM2ViMmI3MGIiLCJ3cml0ZUtleSI6Ikt0SlJmNUgwc3ptanhlbWhKYmdXbHR3NkRKMzhpSHlCIiwicHJvcGVydGllcyI6eyJ1cmwiOiIvaG9tZXBhZ2UifX0"
+                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=$(writeKey}&anonymousId=${ajs_anonymous_id}
               },
               "triggers": {
                 "trackPageview": {
                   "on": "visible",
                   "request": "pageview"
                 }
+              },
+              "vars": {
+                "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB"
               },
               "transport": {
                 "beacon": false,
