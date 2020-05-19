@@ -42,7 +42,7 @@
           <script type="application/json">
             {
               "requests": {
-                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=$amp_client_id"
+                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=CLIENT_ID(ajs_anonymous_id)"
               },
               "triggers": {
                 "trackPageview": {
@@ -62,19 +62,12 @@
           </script>
         </amp-analytics>
         <a href="http://longstoryshort.github.io/index.html">Orig page LSS</a>
-
-        <amp-link-rewriter layout="nodisplay">
-          <script type="application/json">
-            {
-              "output": "http://longstoryshort.github.io/index.html?ajs_trait_ampid=123"
-              "attribute": {
-                "href": ".*",
-            }
-          </script>
-        </amp-link-rewriter>
+        <br>
         <br>
         <a
-        href="http://longstoryshort.github.io/index.htm">Back</a>
+        href="http://longstoryshort.github.io/index.htm?ajs_aid=CLIENT_ID(AMP_ECID_GOOGLE,,_ga)"
+        data-amp-replace="CLIENT_ID"
+        >Back (anon_id)</a>
        
 
 
