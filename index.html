@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151661735-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,7 +10,7 @@
 
   gtag('config', 'UA-151661735-1');
 </script>
-
+ -->
     <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title> 
     <!-- 
     <script>
@@ -243,20 +243,22 @@ window.onload = function () {
         ad_enabled: true,
         quality: "hd1080",
         livestream: false
-    })*/
+    });*/
     analytics.track('Array property event Device', 
         {
         array_prop: ["apple","banana","pear"],
         string_prop: "device str apple, device str banana, device str pear"
         }
-    )
+    );
+    /*
     ga('send', {
-  hitType: 'event',
-  eventCategory: 'Video',
-  eventAction: 'play',
-  eventLabel: 'cats.mp4',
-  dimension3: ['boo','moo','foo']
-});
+      hitType: 'event',
+      eventCategory: 'Video',
+      eventAction: 'play',
+      eventLabel: 'cats.mp4',
+      dimension3: ['boo','moo','foo']
+    });
+    */
   }
 </script>
 
