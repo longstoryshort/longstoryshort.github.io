@@ -45,7 +45,7 @@
           <script type="application/json">
             {
               "requests": {
-                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=CLIENT_ID(_ga)"
+                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=KtJRf5H0szmjxemhJbgWltw6DJ38iHyB&anonymousId=${clientId(_ga)}"
               },
               "triggers": {
                 "trackPageview": {
@@ -68,7 +68,7 @@
         <br>
         <br>
         <a
-        href="http://longstoryshort.github.io/index.htm?ajs_aid=CLIENT_ID"
+        href="http://longstoryshort.github.io/index.htm?ajs_aid=CLIENT_ID(_ga)"
         data-amp-replace="CLIENT_ID"
         >Back (anon_id)</a>
        
