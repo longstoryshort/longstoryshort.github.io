@@ -30,7 +30,8 @@
           {
             "vars": {
               "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB",
-              "name": "Segment AMP page 1"
+              "name": "Segment AMP page 1",
+              "properties.type"
             },
             
               "linkers": {
@@ -47,7 +48,7 @@
           <script type="application/json">
             {
               "requests": {
-                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}"
+                "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}
               },
               "triggers": {
                 "trackPageview": {
@@ -57,7 +58,8 @@
               },
               "vars": {
                 "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB",
-                "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)"
+                "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)",
+                "pageName": "First AMP Page"
               },
               "transport": {
                 "beacon": false,
