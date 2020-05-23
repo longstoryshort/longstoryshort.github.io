@@ -181,6 +181,32 @@
 <a href="http://127.0.0.1:5500/ampp.html">AMP page</a>
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
+<p>Tags</p>
+<form name="tags" onsubmit="track(event)">
+<input type="checkbox" name="type" value="apple" />
+<input type="checkbox" name="type" value="banana" />
+<input type="checkbox" name="type" value="cherry" />
+<input type="checkbox" name="type" value="pear" />
+<input name="submit" type="submit" value="submit"/>
+</form>
+<script type="text/javascript">
+var checkboxes = document.querySelectorAll("input[type=checkbox]");
+function getChecked() {
+  
+  var checked = [];
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    var checkbox = checkboxes[i];
+    if (checkbox.checked) checked.push(checkbox.value);
+  }
+
+  return checked;
+}
+  analytics.track('Selected tags',{
+    array_prop: checked,
+    string_prop: checked.toString(),
+  })
+</script>
 
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
@@ -244,12 +270,14 @@ window.onload = function () {
         quality: "hd1080",
         livestream: false
     });*/
+    /*
     analytics.track('Viewed Homepage <track>', 
         {
         array_prop: ["apple","banana","pear"],
         string_prop: "device str apple, device str banana, device str pear"
         }
     );
+    */
     /*
     ga('send', {
       hitType: 'event',
