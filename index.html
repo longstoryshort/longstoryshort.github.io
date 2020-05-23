@@ -182,7 +182,7 @@
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
 <p>Tags</p>
-<form name="tags" onsubmit="track(event)">
+<form name="tags" onsubmit="getChecked(event)">
 <input type="checkbox"  value="apple" />
 <input type="checkbox"  value="banana" />
 <input type="checkbox"  value="cherry" />
@@ -190,22 +190,23 @@
 <input  type="submit" id="submit"/>
 </form>
 <script type="text/javascript">
-var checkboxes = document.querySelectorAll("input[type=checkbox]");
-function getChecked() {
-  
+
+function getChecked(event) {
+  event.preventDefault();
+  var checkboxes = document.querySelectorAll("input[type=checkbox]");
   var checked = [];
 
   for (var i = 0; i < checkboxes.length; i++) {
     var checkbox = checkboxes[i];
+    console.log(checkbox)
     if (checkbox.checked) checked.push(checkbox.value);
   }
 
-  return checked;
-}
-  analytics.track('Selected tags',{
-    array_prop: checked,
-    string_prop: checked.toString(),
+  console.log(checked);
+  analytics.track("Selected tags",{
+    array_prop: checked
   })
+}  
 </script>
 
 <p>I am building a directory of the sweetest travel destinations.</p>  
