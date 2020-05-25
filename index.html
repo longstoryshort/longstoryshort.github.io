@@ -157,7 +157,7 @@
           // Make the first page call to load the integrations. If
           // you'd like to manually name or tag the page, edit or
           // move this call however you'd like.
-          analytics.page('Homepage Regular');
+          analytics.page();
         })();
       
       </script>
@@ -181,35 +181,7 @@
 <a href="http://127.0.0.1:5500/ampp.html">AMP page</a>
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
-<p>Tags</p>
-<form name="tags" onsubmit="getChecked(event)">
-<input type="checkbox"  value="apple" />
-<input type="checkbox"  value="banana" />
-<input type="checkbox"  value="cherry" />
-<input type="checkbox"  value="pear" />
-<input  type="submit" id="submit"/>
-</form>
-<!--
-<script type="text/javascript">
 
-function getChecked(event) {
-  event.preventDefault();
-  var checkboxes = document.querySelectorAll("input[type=checkbox]");
-  var checked = [];
-
-  for (var i = 0; i < checkboxes.length; i++) {
-    var checkbox = checkboxes[i];
-    console.log(checkbox)
-    if (checkbox.checked) checked.push(checkbox.value);
-  }
-
-  console.log(checked);
-  analytics.track("Selected tags",{
-    array_prop: checked
-  })
-}  
-</script>
--->
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
@@ -228,7 +200,7 @@ function getChecked(event) {
     <input name="submit" type="submit" value="submit"/>
 </form> 
 <div id="target-container"></div>
-<!--
+
 <script type="text/javascript">
 /*
 window.onload = function (){
@@ -239,9 +211,9 @@ window.onload = function (){
         })
     }
 */  
-/*
+
 window.onload = function () {
-    
+  /*  
   analytics.page("LSS category","LSS page name", {
             array_prop: ["apple","banana", "cherry"],
             string_prop: "apple, banana, cherry",
@@ -272,14 +244,12 @@ window.onload = function () {
         quality: "hd1080",
         livestream: false
     });*/
-    /*
-    analytics.track('Viewed Homepage <track>', 
+    analytics.track('Array property event Device', 
         {
         array_prop: ["apple","banana","pear"],
         string_prop: "device str apple, device str banana, device str pear"
         }
     );
-    */
     /*
     ga('send', {
       hitType: 'event',
@@ -288,10 +258,10 @@ window.onload = function () {
       eventLabel: 'cats.mp4',
       dimension3: ['boo','moo','foo']
     });
-    
-  }*/
+    */
+  }
 </script>
--->
+
 <script type="text/javascript">
     function identify(e){
       e.preventDefault();
