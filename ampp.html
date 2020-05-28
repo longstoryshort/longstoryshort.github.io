@@ -10,6 +10,8 @@
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async></script>
+
     <!-- Import other AMP Extensions here -->
     <style amp-custom>
     /* Add your styles here */
@@ -22,13 +24,18 @@
   </head>
   <body>
     <h1>First AMP Page</h1>
+    <p [text]="'Hello ' + foo">Hello World</p>
+    <button on="tap:AMP.setState({foo: 'Interactivity'})">
+      Say "Hello Interactivity"
+    </button>
     <!--Segment plug in-->
       <amp-analytics type="segment">
         <script type="application/json">
           {
             "vars": {
               "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB",
-              "name": "Segment AMP page 1"
+              "name": "Segment AMP page 1",
+              "ajs_id": "CLIENT_ID(ajs_anonymous_id)"
             },
             "extraUrlParams": {
               "properties.segmentId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)"
@@ -101,7 +108,6 @@
         </amp-analytics>
         -->
         
-      
         <a href="https://longstoryshort.github.io/index.html">Orig page LSS</a>
         <br>
         <br>
@@ -110,8 +116,9 @@
         data-amp-replace="QUERY_PARAM"
         >Back (query param)</a>
         <br><br>
+        <!--This enables stitching activity when a user lands on AMP: pass AMP Id as anonymous Id -->
         <a
-        href="https://longstoryshort.github.io/index.html?ajs_aid=CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)"
+        href="https://longstoryshort.github.io/index.html?ajs_aid=CLIENT_ID(ajs_anonymous_id)"
         data-amp-replace="CLIENT_ID"
         >Back (anon_id)</a>
         <br>
