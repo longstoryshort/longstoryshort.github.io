@@ -177,14 +177,16 @@
           .split('=')[1];
         if (cookieValue.startsWith("amp")) {
           console.log('AMP cookie!')
-          analytics.user().anonymousId(cookieValue);
+          return(cookieValue)
+          
         }
         else {
           console.log('_ga cookie!')
         }
-        return cookieValue
+        return null
       }
       console.log(checkGAcookie());
+      analytics.user().anonymousId(cookieValue);
     </script>
    
 
