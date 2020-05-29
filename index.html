@@ -157,7 +157,7 @@
           // Make the first page call to load the integrations. If
           // you'd like to manually name or tag the page, edit or
           // move this call however you'd like.
-          analytics.page();
+          //analytics.page();
         })();
       
       </script>
@@ -177,12 +177,13 @@
           .split('=')[1];
         if (cookieValue.startsWith("amp")) {
           console.log('AMP cookie! ' + cookieValue)
-          
           analytics.user().anonymousId(cookieValue);
+          analytics.page()
         }
         else {
           console.log('_ga cookie! ' + cookieValue)
-          analytics.user().anonymousId(cookieValue);
+          analytics.user().anonymousId('boo');
+          analytics.page()
         }
         return null
       }
