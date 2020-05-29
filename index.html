@@ -170,23 +170,27 @@
         })*/
     </script>
     <script type="text/javascript">
-      function checkGAcookie() {
+      analytics.ready(function checkGAcookie() {
         const cookieValue = document.cookie
           .split('; ')
           .find(row => row.startsWith('_ga'))
           .split('=')[1];
         if (cookieValue.startsWith("amp")) {
-          console.log('AMP cookie!')
-          return(cookieValue)
+          console.log('AMP cookie! ' + cookieValue)
           
+          analytics.user().anonymousId(cookieValue);
         }
         else {
-          console.log('_ga cookie!')
+          console.log('_ga cookie! ' + cookieValue)
+          analytics.user().anonymousId(cookieValue);
         }
         return null
       }
-      console.log(checkGAcookie());
-      analytics.user().anonymousId(cookieValue);
+      )
+      //console.log(checkGAcookie());
+
+      //analytics.user.anonymousId(checkGAcookie());
+    
     </script>
    
 
