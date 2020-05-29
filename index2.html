@@ -1,0 +1,222 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title> 
+   
+       <script type="text/javascript">
+        (function(){
+      
+          // Create a queue, but don't obliterate an existing one!
+          var analytics = window.analytics = window.analytics || [];
+      
+          // If the real analytics.js is already on the page return.
+          if (analytics.initialize) return;
+      
+          // If the snippet was invoked already show an error.
+          if (analytics.invoked) {
+            if (window.console && console.error) {
+              console.error('Segment snippet included twice.');
+            }
+            return;
+          }
+      
+          // Invoked flag, to make sure the snippet
+          // is never invoked twice.
+          analytics.invoked = true;
+      
+          // A list of the methods in Analytics.js to stub.
+          analytics.methods = [
+            'trackSubmit',
+            'trackClick',
+            'trackLink',
+            'trackForm',
+            'pageview',
+            'identify',
+            'reset',
+            'group',
+            'track',
+            'ready',
+            'alias',
+            'debug',
+            'page',
+            'once',
+            'off',
+            'on',
+            'addSourceMiddleware', 
+                'addDestinationMiddleware'
+          ];
+      
+          // Define a factory to create stubs. These are placeholders
+          // for methods in Analytics.js so that you never have to wait
+          // for it to load to actually record data. The `method` is
+          // stored as the first argument, so we can replay the data.
+          analytics.factory = function(method){
+            return function(){
+              var args = Array.prototype.slice.call(arguments);
+              args.unshift(method);
+              analytics.push(args);
+              return analytics;
+            };
+          };
+      
+          // For each of our methods, generate a queueing stub.
+          for (var i = 0; i < analytics.methods.length; i++) {
+            var key = analytics.methods[i];
+            analytics[key] = analytics.factory(key);
+          }
+      
+          // Define a method to load Analytics.js from our CDN,
+          // and that will be sure to only ever load it once.
+          analytics.load = function(key, options){
+            // Create an async script element based on your key.
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = 'https://cdn.segment.com/analytics.js/v1/'
+              + key + '/analytics.min.js';
+      
+            // Insert our script next to the first script element.
+            var first = document.getElementsByTagName('script')[0];
+            first.parentNode.insertBefore(script, first);
+            analytics._loadOptions = options;
+          };
+      
+          // Add a version to keep track of what's in the wild.
+          analytics.SNIPPET_VERSION = '4.1.0';
+      
+          // Load Analytics.js with your key, which will automatically
+          // load the tools you've enabled for your account. Boosh!
+         // analytics.load("YOUR_WRITE_KEY");
+      
+          // Make the first page call to load the integrations. If
+          // you'd like to manually name or tag the page, edit or
+          // move this call however you'd like.
+          analytics.page();
+        })();
+      
+       </script>
+</head> 
+<body> 
+
+
+<h1>What is your favorite place to travel?</h1> 
+<a href="http://127.0.0.1:5500/ampp.html">AMP page</a>
+<a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
+
+
+<p>I am building a directory of the sweetest travel destinations.</p>  
+<form name="travel" onsubmit="identify(event)">
+     What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text"/> 
+    <br><br><br> 
+    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
+    <br><br> 
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea> 
+    <br><br> 
+    Name: <input name="fullname" required="" size="75" type="text"/> 
+    <br><br> 
+    Email: <input name="email" required="" size="75" type="email"/> 
+    <br><br>
+    <br><br>
+    <input name="submit" type="submit" value="submit"/>
+</form> 
+<div id="target-container"></div>
+
+<script type="text/javascript">
+
+window.onload = function () {
+    analytics.page("LSS category","LSS page name", {
+            array_prop: ["apple","banana", "cherry"],
+            string_prop: "apple, banana, cherry",
+            video_count: 3,
+            social_title: "LSS social title",
+            session_id: "025a"
+        })
+    
+    analytics.track('Array property event', {
+        array_prop: ["apple","banana","pear"],
+        string_prop: "apple, banana, pear"})
+    }
+</script>
+<script type="text/javascript">
+    function identify(e){
+      e.preventDefault();
+      var form = e.target;
+      var email = form["email"].value;
+      var fullname = form["fullname"].value;
+      var destination = form["destination"].value;
+      var details = form["details"].value;
+      //var userId = form["userId"].value;
+      
+      var user = {
+          email: email, 
+          name: fullname, 
+          destination: destination, 
+          details: details
+      };
+     /*
+      analytics.identify( {
+            email: email, 
+            name: fullname
+        });
+ */
+    analytics.track("Button Clicked", {
+        
+        name: fullname,
+        email: email,
+        array_prop: ["apple-a","banana-a","pear-a"],
+        string_prop: "apple-s, banana-s, pear-s",
+        category: "Test Category",
+        },
+        {
+            context: {
+                location: { 
+                    city: "San Francisco",
+                    country: "United States",
+                    latitude: 40.2964197,
+                    longitude: -76.9411617 
+                }
+            }
+        }
+        ); }
+        /*
+    analytics.track('Order Completed', {
+        checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+        order_id: '50314b8e9bcf000000000000',
+        affiliation: 'Google Store',
+        total: 27.50,
+        subtotal: 22.50,
+        revenue: 25.00,
+        shipping: 3,
+        tax: 2,
+        discount: 2.5,
+        coupon: 'hasbros',
+        currency: 'USD',
+        products: [
+                    {
+                    product_id: '507f1f77bcf86cd799439011',
+                    sku: '45790-32',
+                    name: 'Monopoly: 3rd Edition',
+                    price: 19,
+                    quantity: 1,
+                    category: 'Games',
+                    url: 'https://www.example.com/product/path',
+                    image_url: 'https:///www.example.com/product/path.jpg'
+                    },
+                    {
+                    product_id: '505bd76785ebb509fc183733',
+                    sku: '46493-32',
+                    name: 'Uno Card Game',
+                    price: 3,
+                    quantity: 2,
+                    category: 'Games'
+                    }
+                ]
+                });  }  */ 
+    
+    
+</script>
+   
+</body> 
+</html>
