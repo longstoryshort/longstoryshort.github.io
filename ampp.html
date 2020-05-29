@@ -28,8 +28,8 @@
     <button on="tap:AMP.setState({foo: 'Interactivity'})">
       Say "Hello Interactivity"
     </button>
-    <!--Segment plug in-->
-    <!--
+    <!--Segment plugin-->
+    
       <amp-analytics type="segment">
         <script type="application/json">
           {
@@ -47,7 +47,7 @@
           }
         </script>
         </amp-analytics>
-      -->
+    
     
       <!---Segment original config -->
       <!--
@@ -80,7 +80,7 @@
       </amp-analytics>
       -->
       <!-- Custom integration -->
-      
+      <!--
         <amp-analytics>
           <script type="application/json">
             {
@@ -118,14 +118,14 @@
                 "_ga": {
                   "value": "LINKER_PARAM(segment, s_amp_id)"
                 },
-                "ajs_anonymous_id": {
+                "amp_id": {
                   "value": "LINKER_PARAM(segment, amp_anon_id)"
                 }
               }
             }
           </script>
         </amp-analytics>
-      
+        -->
         
         <a href="https://longstoryshort.github.io/index.html">Orig page LSS</a>
         <br>
