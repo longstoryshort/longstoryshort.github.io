@@ -1,74 +1,9 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <!-- Global site tag (gtag.js) - Google Analytics
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151661735-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-151661735-1');
-</script>
- -->
-    <title>Sandbox Homepage</span></title> 
-    <!-- 
-    <script>
-      
-        window.consentManagerConfig = function(exports) {
-            var React = exports.React
-            var inEU = exports.inEU
-            var regionArray = ["EU", "CA"]; 
-            //adding regionArray into inRegions callback
-            var inRegions = exports.inRegions(regionArray);
-            //will display true/false based on whether user in EU/CA or not
-            var isInRegions = inRegions()
-            //adding inInRegions to container
-            var container = document.getElementById("target div")
-            container.innerHTML = isInRegions;
-            //passing inRegions callback into preferences object      
-            var bannerContent = React.createElement(
-            'span',
-            null,
-            'We use cookies (and other similar technologies) to collect data to improve your experience on our site. By using our website, you՚re agreeing to the collection of data as described in our',
-            ' ',
-            React.createElement(
-              'a',
-              { href: '/docs/legal/website-data-collection-policy/', target: '_blank' },
-              'Website Data Collection Policy'
-            ),
-            '.'
-          )
-          var bannerSubContent = 'You can change your preferences at any time.'
-          var preferencesDialogTitle = 'Website Data Collection Preferences'
-          var preferencesDialogContent =
-            'We use data collected by cookies and JavaScript libraries to improve your browsing experience, analyze site traffic, deliver personalized advertisements, and increase the overall performance of our site.'
-          var cancelDialogTitle = 'Are you sure you want to cancel?'
-          var cancelDialogContent =
-            'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
-      
-          return {
-            container: '#target-container',
-            writeKey: 'pEQpF9hDo6NKhYcWwg219h7y2eBG64ZO',
-            shouldRequireConsent: inRegions,
-            bannerContent: bannerContent,
-            bannerSubContent: bannerSubContent,
-            preferencesDialogTitle: preferencesDialogTitle,
-            preferencesDialogContent: preferencesDialogContent,
-            cancelDialogTitle: cancelDialogTitle,
-            cancelDialogContent: cancelDialogContent
-          }
-        }
-       
-      </script>
-     
-       <script
-       
-       src="https://unpkg.com/@segment/consent-manager@5.0.0/standalone/consent-manager.js"
-       defer
-       
-     ></script>  
-      -->
+ 
+    <title>Sandbox Homepage (slim)</title> 
+   
      <script type="text/javascript">
         (function(){
       
@@ -161,14 +96,7 @@
         })();
       
       </script>
- 
-    <script>
-        /*analytics.ready(function(){
-            var newScript = document.createElement("script");
-            newScript.src = "http://static.chartbeat.com/js/chartbeat_mab.js";
-            document.head.appendChild(newScript);
-        })*/
-    </script>
+ <!--Checks if _ga cookie includes "amp" substring, and if so - resets anonymousId-->
     <script type="text/javascript">
       analytics.ready(function checkGAcookie() {
         const cookieValue = document.cookie
@@ -256,42 +184,10 @@ window.onload = function () {
     /*analytics.identify('12345qwerty', {
         name: 'donut!'
         })
-    }*/
-    /*analytics.track('Video Playback Started', {
-        session_id: "12345",
-        content_asset_ids: ["0129370"],
-        content_pod_ids: ["segA", "segB"],
-        ad_asset_id: ["ad123", "ad097"],
-        ad_pod_id: ["adSegA", "adSegB"],
-        ad_type: ["mid-roll", "post-roll"],
-        position: 0,
-        total_length: 392,
-        bitrate: 100,
-        framerate: 29.00,
-        video_player: "youtube",
-        sound: 88,
-        full_screen: false,
-        ad_enabled: true,
-        quality: "hd1080",
-        livestream: false
-    });
-    analytics.track('Array property event Device', 
-        {
-        array_prop: ["apple","banana","pear"],
-        string_prop: "device str apple, device str banana, device str pear"
-        }
-    );
-    
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Video',
-      eventAction: 'play',
-      eventLabel: 'cats.mp4',
-      dimension3: ['boo','moo','foo']
-    });
-    
-  }
-  */
+    }
+    */
+}
+  
 </script>
 
 <script type="text/javascript">
@@ -334,41 +230,11 @@ window.onload = function () {
                 }
             }
         }
-        ); }
-        /*
-    analytics.track('Order Completed', {
-        checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
-        order_id: '50314b8e9bcf000000000000',
-        affiliation: 'Google Store',
-        total: 27.50,
-        subtotal: 22.50,
-        revenue: 25.00,
-        shipping: 3,
-        tax: 2,
-        discount: 2.5,
-        coupon: 'hasbros',
-        currency: 'USD',
-        products: [
-                    {
-                    product_id: '507f1f77bcf86cd799439011',
-                    sku: '45790-32',
-                    name: 'Monopoly: 3rd Edition',
-                    price: 19,
-                    quantity: 1,
-                    category: 'Games',
-                    url: 'https://www.example.com/product/path',
-                    image_url: 'https:///www.example.com/product/path.jpg'
-                    },
-                    {
-                    product_id: '505bd76785ebb509fc183733',
-                    sku: '46493-32',
-                    name: 'Uno Card Game',
-                    price: 3,
-                    quantity: 2,
-                    category: 'Games'
-                    }
-                ]
-                });  }  */ 
+        ); 
+    
+    }
+        
+   
     
     
 </script>
