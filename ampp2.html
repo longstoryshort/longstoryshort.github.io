@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1>Second AMP Page</h1>
-    <!--
+    
       <amp-analytics type="segment">
         <script type="application/json">
           {
@@ -39,9 +39,10 @@
             }
         </script>
         </amp-analytics>
-    -->
+    
 
     <!-- Segment original config -->
+    <!--
     <amp-analytics type="segment">
       <script type="application/json">
         {
@@ -91,7 +92,55 @@
         }
       </script>
     </amp-analytics>
-    
+    -->
+
+    <!--Custom Segment integration -->
+    <!--
+    <amp-analytics>
+      <script type="application/json">
+        {
+          "requests": {
+            "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          },
+          "vars": {
+            "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB",
+            "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)",
+            "pageName": "First AMP Page",
+            "google_id": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga)"
+          },
+          "transport": {
+            "beacon": false,
+            "xhrpost": false,
+            "image": true
+          },
+          
+          "linkers": {
+            "segment": {
+              "ids": {
+                "s_amp_id": "${anonymousId}",
+                "amp_anon_id": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)"
+              },
+              "proxyOnly": false
+            }
+          },
+          "cookies": {
+            "_ga": {
+              "value": "LINKER_PARAM(segment, s_amp_id)"
+            },
+            "amp_id": {
+              "value": "LINKER_PARAM(segment, amp_anon_id)"
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    -->
         <a href="https://longstoryshort.github.io/index.html">Orig page LSS</a>
         <br>
         <br>
