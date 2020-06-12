@@ -56,10 +56,7 @@
             "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB"
           },
           "requests": {
-            "host": "https://api.segment.io/v1/pixel",
-            "base": "?writeKey=${writeKey}&context.library.name=amp&anonymousId=${anonymousId}&context.locale=${browserLanguage}&context.page.path=${canonicalPath}&context.page.url=${canonicalUrl}&context.page.referrer=${documentReferrer}&context.page.title=${title}&context.screen.width=${screenWidth}&context.screen.height=${screenHeight}",
-            "page": "${host}/page${base}&name=${name}",
-            "track": "${host}/track${base}&event=${event}"
+            "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}"
           },
           "extraUrlParams": {
             "properties.segmentId": "${anonymousId}"
@@ -75,6 +72,9 @@
               "ids": {
                 "s_amp_id": "${anonymousId}"
               },
+              "ga": {
+                "s_ga_id": "${ga}"
+              },
               "proxyOnly": false,
               "enabled": true
             }
@@ -82,6 +82,9 @@
           "cookies": {
             "_ga": {
               "value": "LINKER_PARAM(segment, s_ga_id)"
+            },
+            "ajs_anonymous_id": {
+              "value": "LINKER_PARAM(segment, s_amp_id)"
             }
           }
         }
