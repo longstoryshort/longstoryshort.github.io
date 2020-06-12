@@ -56,15 +56,12 @@
             "writeKey": "KtJRf5H0szmjxemhJbgWltw6DJ38iHyB"
           },
           "requests": {
-            "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}"
-          },
-          "extraUrlParams": {
-            "properties.segmentId": "${anonymousId}"
+            "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}&properties.segmentId=${anonymousId}"
           },
           "triggers": {
-            "page": {
+            "trackPageview": {
               "on": "visible",
-              "request": "page"
+              "request": "pageview"
             }
           },
           "linkers": {
@@ -83,6 +80,7 @@
             }
           },
           "cookies": {
+            "enabled": true,
             "_ga": {
               "value": "LINKER_PARAM(segment, s_ga_id)"
             },
