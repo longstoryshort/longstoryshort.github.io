@@ -53,7 +53,7 @@
           "vars": {
             "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)",
             "ga": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga),
-            "writeKey": 
+            "writeKey": "123"
           },
           "requests": {
             "host": "https://api.segment.io/v1/pixel",
@@ -76,7 +76,8 @@
                 "s_amp_id": "${anonymousId}",
                 "s_ga_id": "${ga}"
               },
-              "proxyOnly": false
+              "proxyOnly": false,
+              "enabled": true
             }
           },
           "cookies": {
