@@ -29,7 +29,7 @@
       Say "Hello Interactivity"
     </button>
     <!--Segment plugin-->
-    
+    <!--
       <amp-analytics type="segment">
         <script type="application/json">
           {
@@ -46,38 +46,57 @@
           }
         </script>
         </amp-analytics>
+      -->
     
-    
-      <!---Segment original config -->
-      <!--
-      <amp-analytics>
-        <script type="application/json">
-      {
-        "transport": {
-          "beacon": false,
-          "xhrpost": false,
-          "image": true
-        },
-        "vars": {
-          "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga)"
-        },
-        "requests": {
-          "host": "https://api.segment.io/v1/pixel",
-          "base": "?writeKey=${writeKey}&context.library.name=amp&anonymousId=${anonymousId}&context.locale=${browserLanguage}&context.page.path=${canonicalPath}&context.page.url=${canonicalUrl}&context.page.referrer=${documentReferrer}&context.page.title=${title}&context.screen.width=${screenWidth}&context.screen.height=${screenHeight}",
-          "page": "${host}/page${base}&name=${name}",
-          "track": "${host}/track${base}&event=${event}"
-        },
-        "triggers": {
-          "page": {
-            "on": "visible",
-            "request": "page"
+      <!-- Segment original config -->
+    <amp-analytics type="segment">
+      <script type="application/json">
+        {
+          "transport": {
+            "beacon": false,
+            "xhrpost": false,
+            "image": true
+          },
+          "vars": {
+            "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)",
+            "ga": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga),
+            "writeKey": 
+          },
+          "requests": {
+            "host": "https://api.segment.io/v1/pixel",
+            "base": "?writeKey=${writeKey}&context.library.name=amp&anonymousId=${anonymousId}&context.locale=${browserLanguage}&context.page.path=${canonicalPath}&context.page.url=${canonicalUrl}&context.page.referrer=${documentReferrer}&context.page.title=${title}&context.screen.width=${screenWidth}&context.screen.height=${screenHeight}",
+            "page": "${host}/page${base}&name=${name}",
+            "track": "${host}/track${base}&event=${event}"
+          },
+          "extraUrlParams": {
+            "properties.segmentId": "${anonymousId}"
+          },
+          "triggers": {
+            "page": {
+              "on": "visible",
+              "request": "page"
+            }
+          },
+          "linkers": {
+            "segment": {
+              "ids": {
+                "s_amp_id": "${anonymousId}"
+              },
+              "proxyOnly": false
+            }
+          },
+          "cookies": {
+            "_ga": {
+              "value": "LINKER_PARAM(segment, s_amp_id)"
+            },
+            "ajs_anonymous_id": {
+              "value": "LINKER_PARAM(segment, s_amp_id)"
+            }
           }
         }
-        
-      }
       </script>
-      </amp-analytics>
-      -->
+    </amp-analytics>
+
       <!-- Custom integration -->
       <!--
         <amp-analytics>
