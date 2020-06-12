@@ -127,14 +127,22 @@
             "proxyOnly": false,
             "segment": {
               "ids": {
-                "segment_id": "${google_id}"                
+                "segment_id": "${anonymousId}"                
+              }
+            },
+            "google": {
+              "ids": {
+                "g_id": "${google_id}"                
               }
             }
           },
           "cookies": {
             "_ga": {
+              "value": "LINKER_PARAM(segment, google_id)"
+            },
+            "ajs_anonymous_id": {
               "value": "LINKER_PARAM(segment, segment_id)"
-            }
+            },
           }
         }
       </script>
