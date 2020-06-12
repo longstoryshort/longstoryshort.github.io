@@ -73,14 +73,15 @@
           "linkers": {
             "segment": {
               "ids": {
-                "s_amp_id": "${anonymousId}"
+                "s_amp_id": "${anonymousId}",
+                "s_ga_id": "${ga}"
               },
               "proxyOnly": false
             }
           },
           "cookies": {
             "_ga": {
-              "value": "LINKER_PARAM(segment, s_amp_id)"
+              "value": "LINKER_PARAM(segment, s_ga_id)"
             },
             "ajs_anonymous_id": {
               "value": "LINKER_PARAM(segment, s_amp_id)"
