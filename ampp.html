@@ -29,7 +29,7 @@
       Say "Hello Interactivity"
     </button>
     <!--Segment plugin-->
-    
+    <!--
       <amp-analytics type="segment">
         <script type="application/json">
           {
@@ -46,10 +46,10 @@
           }
         </script>
         </amp-analytics>
-      
+      -->
     
       <!-- Segment original config -->
-      <!--
+      
     <amp-analytics type="segment">
       <script type="application/json">
         {
@@ -59,9 +59,7 @@
             "image": true
           },
           "vars": {
-            "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)",
-            "ga": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga),
-            "writeKey": 
+            "anonymousId": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga)"
           },
           "requests": {
             "host": "https://api.segment.io/v1/pixel",
@@ -81,8 +79,8 @@
           "linkers": {
             "segment": {
               "ids": {
-                "s_amp_id": "${anonymousId}",
-                "s_ga_id": "${ga}"
+                "s_amp_id": "${anonymousId}"
+               
               },
               "proxyOnly": false,
               "enabled": true
@@ -90,16 +88,13 @@
           },
           "cookies": {
             "_ga": {
-              "value": "LINKER_PARAM(segment, s_ga_id)"
-            },
-            "ajs_anonymous_id": {
               "value": "LINKER_PARAM(segment, s_amp_id)"
             }
           }
         }
       </script>
     </amp-analytics>
-  -->
+  
       <!-- Custom integration -->
       <!--
         <amp-analytics>
