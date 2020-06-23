@@ -197,6 +197,37 @@
 
 </head> 
 <body> 
+
+  <br>
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({
+	portalId: "7457584",
+	formId: "9b10e601-5ffa-455c-9dc8-1870febd65f8"
+});
+
+window.addEventListener('message', event => {
+   if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+      console.log('form submit') 
+      var formId = event.data.id
+      console.log(event)
+      console.log(formId)
+      var email = event.data.data[0].value
+      var fn = event.data.data[1].value
+      var ln = event.data.data[2].value
+      console.log(fn)
+      console.log(ln)
+      analytics.track('Form Submit',{
+        email: email,
+        fn: fn,
+        ln: ln
+      })
+   }
+})
+</script>
     <h2> shouldRequireConsent:</h2>
   <h4><div id="target div"></div></h4>
     
@@ -224,6 +255,7 @@
 </form> 
 <div id="target-container"></div>
 
+<!--
 <script type="text/javascript">
 
 window.onload = function (){
@@ -293,7 +325,7 @@ window.onload = function () {
   }
   */
 </script>
-
+-->
 <script type="text/javascript">
     function identify(e){
       e.preventDefault();
