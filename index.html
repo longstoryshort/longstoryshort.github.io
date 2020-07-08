@@ -160,13 +160,18 @@
      
       analytics.identify( {
             email: email, 
-            name: fullname,
+            name: fullname
+          },
+          {
+            
             integrations: {
               'Google Analytics': {
                 clientId: '1033501218.1368477899'
+              }
             }
           }
-        });
+          
+        );
  
     analytics.track("Button Clicked", {
         
