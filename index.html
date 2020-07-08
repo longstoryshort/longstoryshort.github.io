@@ -104,10 +104,12 @@
 
 
 <body> 
+ 
 <p>First form</p>
 <!--[if lte IE 8]>
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 <![endif]-->
+ <!-- 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 <script>
   hbspt.forms.create({
@@ -115,7 +117,7 @@
 	formId: "714f581e-86b4-4382-ba11-d26b37714101"
 });
 </script>
-
+-->
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
@@ -165,19 +167,24 @@
         
         name: fullname,
         email: email,
+        ts: "2020-05-05T10:52:30-07:00",
         array_prop: ["apple-a","banana-a","pear-a"],
         string_prop: "apple-s, banana-s, pear-s",
         category: "Test Category",
         },
         {
             context: {
+              
                 location: { 
                     city: "San Francisco",
                     country: "United States",
                     latitude: 40.2964197,
                     longitude: -76.9411617 
                 }
-            }
+            },
+            integrations: {"All":false,
+            "Google Analytics": true,
+          "Personas":true}
         }
         ); }
        
