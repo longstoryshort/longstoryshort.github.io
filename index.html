@@ -157,16 +157,23 @@
           destination: destination, 
           details: details
       };
-     
+      analytics.ready(function() {
+      ga(function(tracker) {
+  var client_id = tracker.get('clientId');
+});
+});
       analytics.identify( {
-            email: email, 
-            name: fullname
+            email: "vbn@ex.com", 
+            name: "fghf"
           },
           {
             
-            integrations: {
-              'Google Analytics': {
-                clientId: '111222333.111222333'
+            context: 
+            {
+              integrations: {
+                'Google Analytics': {
+                  clientId: client_id
+                }
               }
             }
           }
