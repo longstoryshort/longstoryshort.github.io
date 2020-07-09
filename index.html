@@ -157,12 +157,12 @@
           destination: destination, 
           details: details
       };
-      analytics.ready(function() {
-      ga(function(tracker) {
+      analytics.ready(function(tracker) {
+       
         var client_id = tracker.get('clientId');
         console.log(client_id)
         return client_id
-        });
+        ;
       });
       analytics.identify( {
             email: "vbn@ex.com", 
