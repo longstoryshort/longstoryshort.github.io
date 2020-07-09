@@ -159,9 +159,11 @@
       };
       analytics.ready(function() {
       ga(function(tracker) {
-  var client_id = tracker.get('clientId');
-});
-});
+        var client_id = tracker.get('clientId');
+        console.log(client_id)
+        return client_id
+        });
+      });
       analytics.identify( {
             email: "vbn@ex.com", 
             name: "fghf"
