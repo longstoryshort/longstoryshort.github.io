@@ -88,7 +88,7 @@
           // Load Analytics.js with your key, which will automatically
           // load the tools you've enabled for your account. Boosh!
           analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y");
-          analytics.page();
+          analytics.page({},{ context: { ip: "0.0.0.0" }});
       
           // Make the first page call to load the integrations. If
           // you'd like to manually name or tag the page, edit or
@@ -120,7 +120,9 @@
 -->
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
-
+<!--Pixel tracking API
+<img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
+-->
 
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
@@ -194,6 +196,7 @@
         },
         {
             context: {
+              ip: "0.0.0.0",
               
                 location: { 
                     city: "San Francisco",
@@ -201,10 +204,7 @@
                     latitude: 40.2964197,
                     longitude: -76.9411617 
                 }
-            },
-            integrations: {"All":false,
-            "Google Analytics": true,
-          "Personas":true}
+            }
         }
         ); }
        

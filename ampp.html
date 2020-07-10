@@ -29,7 +29,7 @@
       Say "Hello Interactivity"
     </button>
     <!--Segment plugin-->
-    <!--
+    
       <amp-analytics type="segment">
         <script type="application/json">
           {
@@ -46,7 +46,7 @@
           }
         </script>
         </amp-analytics>
-    -->  
+    
     
       <!-- Segment original config -->
     <!--  
@@ -96,12 +96,12 @@
     </amp-analytics>
   -->
       <!-- Custom integration -->
-      
+      <!---
        <amp-analytics>
       <script type="application/json">
         {
           "requests": {
-            "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}&properties.google_id=${google_id}"
+              "pageview": "https://api.segment.io/v1/pixel/page?writeKey=${writeKey}&anonymousId=${anonymousId}&context.page.title=${pageName}&properties.google_id=${google_id}"
           },
           "triggers": {
             "trackPageview": {
@@ -138,7 +138,7 @@
         }
       </script>
     </amp-analytics>
-        
+      -->  
         
         <a href="https://longstoryshort.github.io/index.html">Orig page LSS</a>
         <br>
