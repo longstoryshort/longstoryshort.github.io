@@ -157,13 +157,14 @@
           destination: destination, 
           details: details
       };
-      analytics.ready(ga(function(tracker) {
-       
-        var client_id = tracker.get('clientId');
-        console.log(client_id)
-        return client_id
-        ;
-      }));
+      var clientId = analytics.ready(
+        
+        ga(function(tracker) {
+        return tracker.get('clientId');
+        })
+        
+      )
+      console.log(clientId)
       analytics.identify( {
             email: "vbn@ex.com", 
             name: "fghf"
@@ -174,7 +175,7 @@
             {
               integrations: {
                 'Google Analytics': {
-                  clientId: client_id
+                  clientId: clientId
                 }
               }
             }
