@@ -68,6 +68,14 @@
       
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
+          var dmw1 = function({payload, integration, next}) {
+            if (event.name == 'GA event') {
+              payload.obj.name = 'Event Name Transformed for GA'
+            }
+            next(payload)
+          }
+
+          analytics.addDestinationMiddleware('google-analytics', [dmw1])
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
@@ -187,7 +195,11 @@
                 }
             }
         }
-        ); }
+        ); 
+        analytics.track("GA Event", {
+          category: "Test Category",
+        }); 
+      }
        
 </script>
    
