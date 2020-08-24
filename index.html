@@ -70,7 +70,7 @@
           // and that will be sure to only ever load it once.
           var dmw1 = function({payload, integration, next}) {
             if (payload.obj.event == 'GA event' && payload.type() == 'track') {
-              payload.obj.event = 'Event Name Transformed for GA'
+              //payload.obj.event = 'Event Name Transformed for GA'
               console.log("Event name: " + payload.obj.event)
               console.log("Event type: " + payload.type())
             }
