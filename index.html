@@ -72,6 +72,7 @@
             if (event.name == 'GA event') {
               payload.obj.name = 'Event Name Transformed for GA'
             }
+            console.log("Segment fired an event: ", payload.type());
             next(payload)
           }
 
