@@ -69,16 +69,16 @@
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
           var dmw1 = function({payload, integration, next}) {
-            if (payload.obj.event == 'GA event' && payload.type() == 'track') {
-              //payload.obj.event = 'Event Name Transformed for GA'
-              console.log("Event name: " + payload.obj.event)
-              console.log("Event type: " + payload.type())
-            }
             console.log("Segment fired an event: ", payload.type());
+            if (payload.type() == 'page' && payload.obj.event == 'GA Event') {
+              payload.obj.event = 'Event Name Transformed for GA'
+              console.log('Event name changed for GA')
+            }
             next(payload)
           }
 
           analytics.addDestinationMiddleware('Google Analytics', [dmw1])
+
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
@@ -100,7 +100,7 @@
           // load the tools you've enabled for your account. Boosh!
           analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y");
           //analytics.page({},{ context: { ip: "0.0.0.0" }});
-          analytics.page()
+          // analytics.page()
       
           // Make the first page call to load the integrations. If
           // you'd like to manually name or tag the page, edit or
