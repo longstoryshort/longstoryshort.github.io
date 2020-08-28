@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="description" content="This is the AMP Boilerplate.">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
-
+    <script async custom-element="amp-iframe"
+    src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async></script>
 
@@ -46,14 +47,19 @@
           }
         </script>
         </amp-analytics>
+        <amp-img
+          src="/Users/elena.parshina/Downloads/placeholder-650-650-2.jpg"
+          
+        >
+        </amp-img>
         <amp-iframe
-        width="200"
-        height="100"
-        sandbox="allow-scripts allow-same-origin"
-        layout="responsive"
-        frameborder="2"
-        src="http://127.0.0.1:5500/iframe.html"
-      >
+          width="400"
+          height="400"
+          sandbox="allow-scripts allow-same-origin"
+          layout="responsive"
+          frameborder="2"
+          src="http://127.0.0.1:5500/iframe.html">
+      
       </amp-iframe>
     
       <!-- Segment original config -->
