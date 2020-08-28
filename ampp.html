@@ -21,10 +21,10 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
     <link rel="canonical" href="https://longstoryshort.github.io/index.html">
-    <title>First AMP Page</title>
+    <title>First AMP Page (JS Source)</title>
   </head>
   <body>
-    <h1>First AMP Page</h1>
+    <h1>First AMP Page (JS Source)</h1>
     <p [text]="'Hello ' + foo">Hello World</p>
     <button on="tap:AMP.setState({foo: 'Interactivity'})">
       Say "Hello Interactivity"
@@ -36,7 +36,7 @@
           {
             "vars": {
               "writeKey": "TABPkIq0k1HtaB1YZmQHyZpalBV2HpSC",
-              "name": "Segment AMP page 1"
+              "name": "Segment AMP page JS source"
             },
             "extraUrlParams": {
               "properties.segmentId": "CLIENT_ID(AMP_ECID_GOOGLE,,ajs_anonymous_id)"
@@ -48,16 +48,15 @@
         </script>
         </amp-analytics>
         <amp-img
-          src="/Users/elena.parshina/Downloads/placeholder-650-650-2.jpg"
+          src="http://127.0.0.1:5500/placeholder-650.jpg"
           width="650"
           height="650"
-          layout="responsive"
         >
         </amp-img>
         <amp-iframe
           width="400"
           height="400"
-          sandbox="allow-scripts allow-same-origin"
+          sandbox="allow-scripts"
           layout="responsive"
           frameborder="2"
           src="http://127.0.0.1:5500/iframe.html">
