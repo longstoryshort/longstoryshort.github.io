@@ -2,7 +2,7 @@
 <html> 
 <head> 
 
-    <title>Sandbox Homepage v2</title> 
+    <title>Iframe Homepage AMP Source</title> 
    
      <script type="text/javascript">
         (function(){
@@ -100,8 +100,8 @@
           // Load Analytics.js with your key, which will automatically
           // load the tools you've enabled for your account. Boosh!
           // analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y"); //JS writekey
-          // analytics.load("KtJRf5H0szmjxemhJbgWltw6DJ38iHyB") // AMP writekey
-          analytics.load("TABPkIq0k1HtaB1YZmQHyZpalBV2HpSC") // AMP JS 
+          analytics.load("KtJRf5H0szmjxemhJbgWltw6DJ38iHyB") // AMP writekey
+          // analytics.load("TABPkIq0k1HtaB1YZmQHyZpalBV2HpSC") // AMP JS 
           //analytics.page({},{ context: { ip: "0.0.0.0" }});
           analytics.page()
       
@@ -121,37 +121,15 @@
 <body> 
  
 <p>First form</p>
-<!--[if lte IE 8]>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-<![endif]-->
- <!-- 
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-<script>
-  hbspt.forms.create({
-	portalId: "7457584",
-	formId: "714f581e-86b4-4382-ba11-d26b37714101"
-});
-</script>
--->
-<h1>First JS page</h1> 
+
+<h1>Iframe page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
-<!--
-<img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
--->
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
-    <br><br>
+
+<p>Form</p>  
+<form name="color" onsubmit="identify(event)">
+     What is your favorite color?
+    <input name="color" required="" size="81" type="text"/> 
+    <br><br><br>
     <br><br>
     <input name="submit" type="submit" value="submit"/>
 </form> 
@@ -161,33 +139,12 @@
     function identify(e){
       e.preventDefault();
       var form = e.target;
-      var email = form["email"].value;
-      var fullname = form["fullname"].value;
-      var destination = form["destination"].value;
-      var details = form["details"].value;
-      //var userId = form["userId"].value;
-      
-      var user = {
-          email: email, 
-          name: fullname, 
-          destination: destination, 
-          details: details
-      };
+      var color = form["color"].value
         
-       
-      analytics.identify( {
-            email: email, 
-            name: fullname}
-        );
- 
-    analytics.track("Button Clicked v2", {
-        
-        name: btoa(fullname),
-        email: btoa(email),
-        ts: "2020-05-05T10:52:30-07:00",
-        array_prop: ["apple-a","banana-a","pear-a"],
-        string_prop: "apple-s, banana-s, pear-s",
-        category: "Test Category",
+  
+    analytics.track("iFrame Color Submitted AMP source", {
+        color: color,       
+        category: color,
         },
         {
             context: {
@@ -202,12 +159,7 @@
             }
         }
         ); 
-        analytics.track("GA Event v2", {
-          category: "MW Category",
-        }); 
-        analytics.track(details, {
-          category: name,
-        }); 
+      
       }
        
 </script>
