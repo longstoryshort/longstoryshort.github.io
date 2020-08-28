@@ -68,6 +68,7 @@
       
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
+          /*
           var dmw1 = function({payload, integration, next}) {
             console.log("Segment fired an event: ", payload.type());
             if (payload.type() == 'page' && payload.obj.event == 'GA Event') {
@@ -78,7 +79,7 @@
           }
 
           analytics.addDestinationMiddleware('Google Analytics', [dmw1])
-
+          */
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
@@ -98,7 +99,8 @@
       
           // Load Analytics.js with your key, which will automatically
           // load the tools you've enabled for your account. Boosh!
-          analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y");
+          // analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y"); //JS writekey
+          analytics.load("KtJRf5H0szmjxemhJbgWltw6DJ38iHyB") // AMP writekey
           //analytics.page({},{ context: { ip: "0.0.0.0" }});
           // analytics.page()
       
