@@ -176,7 +176,7 @@
       };
         
        
-      analytics.identify( {
+      analytics.identify("abc", {
             email: email, 
             name: fullname}
         );
@@ -184,7 +184,7 @@
     analytics.track("Button Clicked v2", {
         
         name: btoa(fullname),
-        email: btoa(email),
+        email: email,
         ts: "2020-05-05T10:52:30-07:00",
         array_prop: ["apple-a","banana-a","pear-a"],
         string_prop: "apple-s, banana-s, pear-s",
@@ -207,7 +207,7 @@
           category: "MW Category",
         }); 
         analytics.track(details, {
-          category: name,
+          category: name
         }); 
       }
        
