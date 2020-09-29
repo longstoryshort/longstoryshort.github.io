@@ -130,7 +130,6 @@
   hbspt.forms.create({
 	portalId: "7457584",
   formId: "714f581e-86b4-4382-ba11-d26b37714101"
-  628 2312211
 });
 </script>
 -->
@@ -145,7 +144,9 @@
   data-v="4"
   data-type="inline"
 />
+
 <script type="text/javascript">
+/*
 window.onVidyardAPI = (vidyardEmbed) => {
  vidyardEmbed.api.addReadyListener((_, player) => {
 
@@ -154,6 +155,38 @@ console.log('player ready:', player.ready());
  // put your code here
 
 }, "moVpmjzws1KqgAaTadxX6C")
+
+ }
+ */
+</script>
+<script type="text/javascript">
+window.onVidyardAPI = (vidyardEmbed) => {
+ vidyardEmbed.api.addReadyListener((_, player) => {
+
+//The below code will send Play, Pause and End Reached events for the first Vidyard player available within your HTML
+
+var video = VidyardV4.players[0];
+
+ video.on("play", function() {
+  analytics.track("GA Event v2", {
+          video_name: video.metadata.name,
+          video_action: 'Play'
+        }); 
+  }); 
+ video.on("pause", function() { 
+  analytics.track("GA Event v2", {
+          video_name: video.metadata.name,
+          video_action: 'Pause'
+        }); 
+ }); 
+ video.on("playerComplete", function() { 
+  analytics.track("GA Event v2", {
+          video_name: video.metadata.name,
+          video_action: 'Complete'
+        }); 
+ }); 
+ 
+}, )
  }
 </script>
 <h1>First JS page</h1> 
