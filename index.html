@@ -129,7 +129,8 @@
 <script>
   hbspt.forms.create({
 	portalId: "7457584",
-	formId: "714f581e-86b4-4382-ba11-d26b37714101"
+  formId: "714f581e-86b4-4382-ba11-d26b37714101"
+  628 2312211
 });
 </script>
 -->
@@ -144,6 +145,17 @@
   data-v="4"
   data-type="inline"
 />
+<script type="text/javascript">
+window.onVidyardAPI = (vidyardEmbed) => {
+ vidyardEmbed.api.addReadyListener((_, player) => {
+
+console.log('player ready:', player.ready());
+ console.log(player.uuid);
+ // put your code here
+
+}, "UUID")
+ }
+</script>
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 <!--
