@@ -170,19 +170,25 @@ var video = VidyardV4.players[0];
  video.on("play", function() {
   analytics.track("Video Started", {
           video_name: video.metadata.name,
-          video_action: 'Play'
+          video_action: 'Play',
+          category: 'Video Events',
+          label: video.metadata.name
         }); 
   }); 
  video.on("pause", function() { 
   analytics.track("Video Paused", {
           video_name: video.metadata.name,
-          video_action: 'Pause'
+          video_action: 'Pause',
+          category: 'Video Events',
+          label: video.metadata.name
         }); 
  }); 
  video.on("playerComplete", function() { 
   analytics.track("Video Completed", {
           video_name: video.metadata.name,
-          video_action: 'Complete'
+          video_action: 'Complete',
+          category: 'Video Events',
+          label: video.metadata.name
         }); 
  }); 
  
