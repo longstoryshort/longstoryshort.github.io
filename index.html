@@ -168,19 +168,19 @@ window.onVidyardAPI = (vidyardEmbed) => {
 var video = VidyardV4.players[0];
 
  video.on("play", function() {
-  analytics.track("GA Event v2", {
+  analytics.track("Video Started", {
           video_name: video.metadata.name,
           video_action: 'Play'
         }); 
   }); 
  video.on("pause", function() { 
-  analytics.track("GA Event v2", {
+  analytics.track("Video Paused", {
           video_name: video.metadata.name,
           video_action: 'Pause'
         }); 
  }); 
  video.on("playerComplete", function() { 
-  analytics.track("GA Event v2", {
+  analytics.track("Video Completed", {
           video_name: video.metadata.name,
           video_action: 'Complete'
         }); 
