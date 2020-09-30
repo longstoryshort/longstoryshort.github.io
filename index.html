@@ -172,8 +172,14 @@ var video = VidyardV4.players[0];
           video_name: video.metadata.name,
           video_action: 'Play',
           category: 'Video Events',
-          label: video.metadata.name
-        }); 
+          label: video.metadata.name  
+        },
+        {
+          integrations:
+          {
+            'All':true
+          }
+      }); 
   }); 
  video.on("pause", function() { 
   analytics.track("Video Paused", {
@@ -181,7 +187,12 @@ var video = VidyardV4.players[0];
           video_action: 'Pause',
           category: 'Video Events',
           label: video.metadata.name
-        }); 
+        },{
+          integrations:
+          {
+            'All':true
+          }
+      }); 
  }); 
  video.on("playerComplete", function() { 
   analytics.track("Video Completed", {
@@ -189,7 +200,12 @@ var video = VidyardV4.players[0];
           video_action: 'Complete',
           category: 'Video Events',
           label: video.metadata.name
-        }); 
+        },{
+          integrations:
+          {
+            'All':true
+          }
+      }); 
  }); 
  
 }, )
