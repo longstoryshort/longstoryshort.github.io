@@ -253,9 +253,10 @@ var video = VidyardV4.players[0];
       };
         
        
-      analytics.identify( {
+      analytics.identify("user_id_"+fullname, {
             email: email, 
-            name: fullname}
+            name: fullname,
+          }
         );
  
     analytics.track("Button Clicked v2", {
