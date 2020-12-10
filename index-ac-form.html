@@ -224,6 +224,21 @@ var video = VidyardV4.players[0];
 <!--
 <img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
 -->
+<!-- BEGIN: Custom JavaScript -->
+<script>
+  var activeForms = document.getElementsByClassName('_form_1');
+  var myForm = activeForms[0];
+  myForm.addEventListener("submit", () => {
+    console.log('The form was submitted');
+    
+    analytics.track("AC Form Submitted", {
+        
+        form_name: myForm["email"].value
+        })
+  });
+  </script>
+  <!-- END: Custom JavaScript -->
+  
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
