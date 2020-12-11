@@ -6,10 +6,42 @@
   <title>Sandbox Active Campaign Forms</title>
   <!-- Segment snippet -->
   <script>
-    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-    analytics.load("FyrpyDbqBtZEbAFJQyUmvlY934KULGIV");
-    analytics.page();
-    }}();
+    ! function () {
+      var analytics = window.analytics = window.analytics || [];
+      if (!analytics.initialize)
+        if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset",
+            "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware",
+            "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"
+          ];
+          analytics.factory = function (e) {
+            return function () {
+              var t = Array.prototype.slice.call(arguments);
+              t.unshift(e);
+              analytics.push(t);
+              return analytics
+            }
+          };
+          for (var e = 0; e < analytics.methods.length; e++) {
+            var key = analytics.methods[e];
+            analytics[key] = analytics.factory(key)
+          }
+          analytics.load = function (key, e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = !0;
+            t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            analytics._loadOptions = e
+          };
+          analytics.SNIPPET_VERSION = "4.13.1";
+          analytics.load("FyrpyDbqBtZEbAFJQyUmvlY934KULGIV");
+          analytics.page();
+        }
+    }();
   </script>
 
 
@@ -43,12 +75,13 @@
       analytics.track("Inline Form Submitted", {
         form_name: form_name
       })
+
+      analytics.identify("", {
+        email: email,
+        name: name,
+        phone: phone
+      })
     });
-    analytics.identify("", {
-      email: email,
-      name: name,
-      phone: phone
-    })
   </script>
   <!-- END: Track Inline Form -->
 
@@ -60,21 +93,22 @@
     myForm.addEventListener("submit", function (event) {
       //console.log('The form was submitted');
       console.log(event)
-      var email = document.querySelector('._form_1 input[name=email]').value
-      var phone = document.querySelector('._form_1 input[name=phone]').value
-      var name = document.querySelector('._form_1 input[name=name]').value
-      var form_name = myForm.querySelector('._form_1 form-title').textContent
+      var email = document.querySelector('._form_3 input[name=email]').value
+      var phone = document.querySelector('._form_3 input[name=phone]').value
+      var name = document.querySelector('._form_3 input[name=name]').value
+      var form_name = myForm.querySelector('._form_3 form-title').textContent
 
 
       analytics.track("Modal Form Submitted", {
         form_name: form_name
       })
+
+      analytics.identify("", {
+        email: email,
+        name: name,
+        phone: phone
+      })
     });
-    analytics.identify("", {
-      email: email,
-      name: name,
-      phone: phone
-    })
   </script>
   <!-- END: Track Modal Form -->
 
