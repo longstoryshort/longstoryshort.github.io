@@ -228,14 +228,24 @@ var video = VidyardV4.players[0];
 <script>
   var activeForms = document.getElementsByClassName('_form_1');
   var myForm = activeForms[0];
-  myForm.addEventListener("submit", () => {
-    console.log('The form was submitted');
+  myForm.addEventListener("submit", function(event)  {
+    //console.log('The form was submitted');
+    console.log(event)
+    var email = document.querySelector('._form_1 input[name=email]').value
+    var phone = document.querySelector('._form_1 input[name=phone]').value
+    var name = document.querySelector('._form_1 input[name=name]').value
+    var form_name = myForm.querySelector('._form_1 form-title').textContent
     
+
     analytics.track("AC Form Submitted", {
-        
-        form_name: 'AC form'
-        })
-  });
+      form_name: form_name
+      })
+    });
+    analytics.identify("", {
+      email: email,
+      name: name,
+      phone: phone
+    })
   </script>
   <!-- END: Custom JavaScript -->
   
