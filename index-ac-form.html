@@ -90,23 +90,25 @@
   <script>
     var activeForms = document.getElementsByClassName('_form_3');
     var myForm = activeForms[0];
-    myForm.addEventListener("submit", function (event) {
-      //console.log('The form was submitted');
-      console.log(event)
-      var email = document.querySelector('._form_3 input[name=email]').value
-      var name = document.querySelector('._form_3 input[name=name]').value
-      var form_name = myForm.querySelector('._form_3 ._form-title').textContent
+    if (myForm !== undefined) {
+      myForm.addEventListener("submit", function (event) {
+        //console.log('The form was submitted');
+        console.log(event)
+        var email = document.querySelector('._form_3 input[name=email]').value
+        var name = document.querySelector('._form_3 input[name=name]').value
+        var form_name = myForm.querySelector('._form_3 ._form-title').textContent
 
 
-      analytics.track("Modal Form Submitted", {
-        form_name: form_name
-      })
+        analytics.track("Modal Form Submitted", {
+          form_name: form_name
+        })
 
-      analytics.identify("", {
-        email: email,
-        name: name
-      })
-    });
+        analytics.identify("", {
+          email: email,
+          name: name
+        })
+      });
+    }
   </script>
   <!-- END: Track Modal Form -->
 
