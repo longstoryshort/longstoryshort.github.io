@@ -57,7 +57,14 @@
   <script src="https://segment86208.activehosted.com/f/embed.php?id=1" type="text/javascript" charset="utf-8"></script>
   <br>
   <script src="https://segment86208.activehosted.com/f/embed.php?id=3" type="text/javascript" charset="utf-8"></script>
+  <br>
+  <a href="https://example.com" id=test_link>Example link</a>
 
+  <script>
+    var link = document.getElementById('test_link');
+    analytics.trackLink(link, 'Clicked Example Link', {     
+    });
+  </script>
 
   <!-- BEGIN: Track Inline Form -->
   <script>
