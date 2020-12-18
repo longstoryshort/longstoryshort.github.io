@@ -2,7 +2,7 @@
 <html> 
 <head> 
 
-    <title>Sandbox Homepage v2</title> 
+    <title>Test Sandbox Page</title> 
    
      <script type="text/javascript">
         (function(){
@@ -72,7 +72,7 @@
           var dmw1 = function({payload, integration, next}) {
             console.log("Segment fired an event: ", payload.type());
             if (payload.type() == 'track' && payload.obj.event == 'Button Clicked') {
-              payload.obj.event = 'Button Clicked ' + payload.obj.context.page.title             
+              payload.obj.event = 'Button Clicked - ' + payload.obj.context.page.title            
               console.log('Event name changed for GA')
             }
             next(payload)
