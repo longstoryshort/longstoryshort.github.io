@@ -68,18 +68,25 @@
       
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
-          /*
+          
           var dmw1 = function({payload, integration, next}) {
             console.log("Segment fired an event: ", payload.type());
-            if (payload.type() == 'page' && payload.obj.event == 'GA Event') {
-              payload.obj.event = 'Event Name Transformed for GA'
-              console.log('Event name changed for GA')
-            }
+           // if (payload.type() == 'page' && payload.obj.event == 'GA Event') {
+           //   payload.obj.event = 'Event Name Transformed for GA'
+              console.log('payload.obj.event')
+
+              console.log(payload.obj.event)
+
+              console.log('payload.type()')
+              console.log(payload.type())
+           //   console.log('Event name changed for GA')
+
+           // }
             next(payload)
           }
 
           analytics.addDestinationMiddleware('Google Analytics', [dmw1])
-          */
+          
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
