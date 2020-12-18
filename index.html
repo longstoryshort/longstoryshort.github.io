@@ -71,17 +71,10 @@
           
           var dmw1 = function({payload, integration, next}) {
             console.log("Segment fired an event: ", payload.type());
-           // if (payload.type() == 'page' && payload.obj.event == 'GA Event') {
-           //   payload.obj.event = 'Event Name Transformed for GA'
-              console.log('payload.obj.event')
-
-              console.log(payload.obj.event)
-
-              console.log('payload.type()')
-              console.log(payload.type())
-           //   console.log('Event name changed for GA')
-
-           // }
+            if (payload.type() == 'track' && payload.obj.event == 'Button Clicked') {
+              payload.obj.event = 'Button Clicked ' + payload.obj.context.page.title             
+              console.log('Event name changed for GA')
+            }
             next(payload)
           }
 
@@ -272,7 +265,7 @@ var video = VidyardV4.players[0];
           }
         );
  
-    analytics.track("Button Clicked v2", {
+    analytics.track("Button Clicked", {
         name: btoa(fullname),
         email: btoa(email),
         ts: "2020-05-05T10:52:30-07:00",
