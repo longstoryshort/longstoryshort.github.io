@@ -214,15 +214,16 @@ var video = VidyardV4.players[0];
  }
 </script>
 -->
-<!--
+
 <h1>Outgrow quiz</h1>
 <br>
-<div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
+<div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1&ajs_anon_id=test_outgrow_anonymous_id' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
+-->
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
 <img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
--->
+
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
@@ -266,13 +267,23 @@ var video = VidyardV4.players[0];
           }
         );
 
-    analytics.track("Button Clicked", {
+
+    analytics.track("Order Completed", {
         name: btoa(fullname),
         email: btoa(email),
         ts: "2020-05-05T10:52:30-07:00",
         array_prop: ["apple-a","banana-a","pear-a"],
         string_prop: "apple-s, banana-s, pear-s",
         category: "Test Category",
+        },
+         {
+          externalIds: [
+            collection:"users",
+            encoding: "none",
+            type:"shopifyId",
+            id: "YOUR_SHOPIFY_ID_VALUE"
+          ]
+        }
         }
         
         ); 
