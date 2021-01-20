@@ -214,13 +214,28 @@ var video = VidyardV4.players[0];
  }
 </script>
 -->
-
+<!--
 <h1>Outgrow quiz</h1>
 <br>
 <div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
 -->
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
+
+
+<script type="text/javascript">
+  var anon_id = localStorage.getItem("ajs_anonymous_id")
+  var link = document.getElementById("quiz_link")
+  var cur_href = link.getAttribute("href")
+  link.setAttribute("href", cur_href + anon_id)
+</script>
+
+<a id='quiz_link' 
+   href="https://segment423.outgrow.us/segment423-4?anon_id="
+   title="Quiz!"
+   target="_blank">link</a>
+
+
 
 <img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
 
