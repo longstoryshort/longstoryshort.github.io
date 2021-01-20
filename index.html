@@ -228,7 +228,7 @@ var video = VidyardV4.players[0];
    >link</a>
 
 <script type="text/javascript">
-  var anon_id = localStorage.getItem("ajs_anonymous_id")
+  var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
   var link = document.getElementById("quiz_link")
   var cur_href = link.getAttribute("href")
   link.setAttribute("href", cur_href + anon_id)
