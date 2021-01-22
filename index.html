@@ -221,22 +221,40 @@ var video = VidyardV4.players[0];
 -->
 <h1>First JS page</h1> 
 <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
+
+
+
 <br>
+<br>
+<br>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+<script>
+  hbspt.forms.create({
+	portalId: "4096920",
+	formId: "57fd5061-8792-4bb7-a6ce-a5fe9d9a9c8f"
+});
+</script>
+
+
 <a id='quiz_link' 
    href="https://segment423.outgrow.us/segment423-4?anon_id="
    title="Quiz!"
-   >link</a>
+   >Quiz link</a>
 
 <script type="text/javascript">
+  // Get anonymous Id from localStorage. Remove the quotes
   var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
+  // Get quiz link tag
   var link = document.getElementById("quiz_link")
+  // Get quiz URL from the tag
   var cur_href = link.getAttribute("href")
+  // Append anonymous Id to the URL
   link.setAttribute("href", cur_href + anon_id)
 </script>
 
 
 
-
+https://quiz.humann.com/product-fit?_ga=2.75390290.1318532231.1611088859-1870651982.1608776564
 
 <img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
 
