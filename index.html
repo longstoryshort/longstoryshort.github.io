@@ -69,16 +69,19 @@
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
           
-          var dmw1 = function({payload, integration, next}) {
+          var dmw1 = function({payload, next, integrations}) {
             console.log("Segment fired an event: ", payload.type());
-            if (payload.type() == 'track' && payload.obj.event == 'Button Clicked') {
-              payload.obj.event = 'Button Clicked - ' + payload.obj.context.page.title            
-              console.log('Event name changed for GA')
+            const regex = '/\S+@\S+\.\S+/'
+            const pageUrl = payload.obj.context.page.url
+            if (payload.type() == 'page' && pageUrl.match(regex)) {
+              payload.obj.context.page.url = 'My generic URL'
+              console.log('URL changed')
             }
             next(payload)
           }
 
-          analytics.addDestinationMiddleware('Google Analytics', [dmw1])
+          //analytics.addDestinationMiddleware('Google Analytics', [dmw1])
+          analytics.addSourceMiddleware(dmw1);
           
           analytics.load = function(key, options){
             // Create an async script element based on your key.
@@ -227,13 +230,6 @@ var video = VidyardV4.players[0];
 <br>
 <br>
 <br>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-<script>
-  hbspt.forms.create({
-	portalId: "4096920",
-	formId: "57fd5061-8792-4bb7-a6ce-a5fe9d9a9c8f"
-});
-</script>
 
 
 <a id='quiz_link' 
@@ -253,10 +249,6 @@ var video = VidyardV4.players[0];
 </script>
 
 
-
-https://quiz.humann.com/product-fit?_ga=2.75390290.1318532231.1611088859-1870651982.1608776564
-
-<img src="https://api.segment.io/v1/pixel/track?data=ewogICJ3cml0ZUtleSI6ICJ1WnF6VjVCaVFSRWdtMTNoNmhsd0VwZjZlQnlSaUVJaCIsCiAgInVzZXJJZCI6ICJ1c2VyXzEyMyIsCiAgImV2ZW50IjogIkVtYWlsIE9wZW5lZDAwMCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAic3ViamVjdCI6ICJUaGUgRWxlY3RyaWMgRGFpbHkiLAogICAgImVtYWlsIjogImphbmUua2ltQGV4YW1wbGUuY29tIgogIH0sCiJjb250ZXh0IjogeyJpcCI6IjAuMC4wLjAifQp9">
 
 <p>I am building a directory of the sweetest travel destinations.</p>  
 <form name="travel" onsubmit="identify(event)">
