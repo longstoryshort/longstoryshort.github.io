@@ -69,20 +69,29 @@
           // Define a method to load Analytics.js from our CDN,
           // and that will be sure to only ever load it once.
           
-          var dmw1 = function({payload, next, integrations}) {
-            console.log("Segment fired an event: ", payload.type());
-            const regex = '/\S+@\S+\.\S+/'
-            const pageUrl = payload.obj.context.page.url
-            if (payload.type() == 'page' && pageUrl.match(regex)) {
-              payload.obj.context.page.url = 'My generic URL'
-              console.log('URL changed')
+          // Source middleware function
+          var smw1 = function({payload, next, integrations}) {
+            
+            // Regex matches basic email address like "joe@doe.com"
+            const regex = /\S+@\S+\.\S+/
+            const contextPageUrl = payload.obj.context.page.url
+            const propsPageUrl = payload.obj.properties.url
+
+            // If the event is page() and either properties.url or context.page.url match the Regex:
+            //  - change the URL string to "My generic URL..."
+            if (payload.type() == "page" && (regex.test(contextPageUrl) || regex.test(propsPageUrl))) {
+              payload.obj.context.page.url = "My generic URL in context"
+              payload.obj.properties.url = "My generic URL in properties"
+              console.log("URL update")
             }
             next(payload)
           }
 
-          //analytics.addDestinationMiddleware('Google Analytics', [dmw1])
-          analytics.addSourceMiddleware(dmw1);
+          analytics.addSourceMiddleware(smw1);
+
           
+          //analytics.addDestinationMiddleware('Google Analytics', [dmw1])
+
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
@@ -115,6 +124,42 @@
         })();
       
       </script>
+      <script>
+        (function(apiKey){
+            (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+            v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+                o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+                y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+                z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+    
+                // Call this whenever information about your visitors becomes available
+                // Please use Strings, Numbers, or Bools for value types.
+                pendo.initialize({
+                    visitor: {
+                        id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
+                        // email:        // Recommended if using Pendo Feedback, or NPS Email
+                        // full_name:    // Recommended if using Pendo Feedback
+                        // role:         // Optional
+    
+                        // You can add any additional visitor level key-values here,
+                        // as long as it's not one of the above reserved names.
+                    },
+    
+                    account: {
+                        id:           'ACCOUNT-UNIQUE-ID' // Highly recommended
+                        // name:         // Optional
+                        // is_paying:    // Recommended if using Pendo Feedback
+                        // monthly_value:// Recommended if using Pendo Feedback
+                        // planLevel:    // Optional
+                        // planPrice:    // Optional
+                        // creationDate: // Optional
+    
+                        // You can add any additional account level key-values here,
+                        // as long as it's not one of the above reserved names.
+                    }
+                });
+        })('5b9886bd-c672-4ec8-5d19-01eed141fd6a');
+    </script>
  
    
 
@@ -301,15 +346,6 @@ var video = VidyardV4.players[0];
         array_prop: ["apple-a","banana-a","pear-a"],
         string_prop: "apple-s, banana-s, pear-s",
         category: "Test Category",
-        },
-         {
-          externalIds: [
-            collection:"users",
-            encoding: "none",
-            type:"shopifyId",
-            id: "YOUR_SHOPIFY_ID_VALUE"
-          ]
-        }
         }
         
         ); 
@@ -333,8 +369,8 @@ var video = VidyardV4.players[0];
           category: name,
         }); 
         */
+      
       }
-       
 </script>
    
 </body> 
