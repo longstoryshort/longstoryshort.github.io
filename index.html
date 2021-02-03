@@ -70,6 +70,7 @@
           // and that will be sure to only ever load it once.
           
           // Source middleware function
+          /*
           var smw1 = function({payload, next, integrations}) {
             
             // Regex matches basic email address like "joe@doe.com"
@@ -88,10 +89,11 @@
           }
 
           analytics.addSourceMiddleware(smw1);
-
+        */
           
           //analytics.addDestinationMiddleware('Google Analytics', [dmw1])
-
+        
+  
           analytics.load = function(key, options){
             // Create an async script element based on your key.
             var script = document.createElement('script');
@@ -116,6 +118,8 @@
           //analytics.load("TABPkIq0k1HtaB1YZmQHyZpalBV2HpSC") // AMP JS 
           //analytics.page({},{ context: { ip: "0.0.0.0" }});
           analytics.page()
+
+          analytics.user().anonymousId('ABC-123-XYZ');
       
           // Make the first page call to load the integrations. If
           // you'd like to manually name or tag the page, edit or
