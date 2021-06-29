@@ -254,12 +254,11 @@ var video = VidyardV4.players[0];
         );
 
 
-    analytics.track("event1", {
-        name: "bob",
-        email: "bob@ex.com",
-        array_prop: ["apple-a","banana-a","pear-a"],
-        string_prop: "apple-s, banana-s, pear-s",
-        category: "Test Category",
+    analytics.track("Form Submitted", {
+        name: fullname,
+        email: email,
+        destination: destination,
+        details: details,
         },
         {integrations: {
     All: true,
@@ -268,27 +267,7 @@ var video = VidyardV4.players[0];
   }}
         
         ); 
-        analytics.track("event2", {
-        name: btoa(fullname),
-        email: btoa(email),
-        ts: "2020-05-05T10:52:30-07:00",
-        array_prop: ["apple-a","banana-a","pear-a"],
-        string_prop: "apple-s, banana-s, pear-s",
-        category: "Test Category",
-        }
-        
-        ); 
-
-        analytics.track("event3", {
-        name: btoa(fullname),
-        email: btoa(email),
-        ts: "2020-05-05T10:52:30-07:00",
-        array_prop: ["apple-a","banana-a","pear-a"],
-        string_prop: "apple-s, banana-s, pear-s",
-        category: "Test Category",
-        }
-        
-        ); 
+       
         /*
         {
             context: {
