@@ -1,93 +1,65 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
+<!DOCTYPE html>
+<html>
 
-    <title>Test Sandbox Page</title> 
+<head>
 
-   
-    <script>
+  <title>Test Sandbox Page</title>
+
+
+
+
+  <script type="text/javascript">
+    + function (a, p, P, b, y) {
+      a.appboy = {};
+      a.appboyQueue = [];
+      for (var s =
+          "DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.setAvatarImageUrl User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent display display.automaticallyShowNewInAppMessages display.destroyFeed display.hideContentCards display.showContentCards display.showFeed display.showInAppMessage display.toggleContentCards display.toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushGranted isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession registerAppboyPushMessages removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh requestImmediateDataFlush resumeWebTracking setLogger setSdkAuthenticationSignature stopWebTracking subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToNewInAppMessages subscribeToSdkAuthenticationFailures toggleAppboyLogging trackLocation unregisterAppboyPushMessages wipeData"
+          .split(" "), i = 0; i < s.length; i++) {
+        for (var m = s[i], k = a.appboy, l = m.split("."), j = 0; j < l.length - 1; j++) k = k[l[j]];
+        k[l[j]] = (new Function("return function " + m.replace(/\./g, "_") +
+          "(){window.appboyQueue.push(arguments); return true}"))()
+      }
       
-      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-      
-      /*
-      var dmw1 = function({payload, next, integrations}) {
-        console.log("Segment fired an event: ", payload.type());
-        console.log(payload.obj.anonymousId)
-        payload.obj.anonymousId = ''
-       
-            next(payload)
-          }
-          analytics.addSourceMiddleware(dmw1);
-
-      var DMW1 = function({ payload, integration, next }) {  var allowlist = ["event1", "event2"]
-        if (allowlist.includes(payload.obj.event)) {
-          next(payload);
-        }
+      window.appboy.getUser = function () {
+        return new window.appboy.User
       };
+      (y = p.createElement(P)).type = 'text/javascript';
+      y.src = 'https://js.appboycdn.com/web-sdk/3.3/appboy.min.js';
+      y.async = 1;
+      (b = p.getElementsByTagName(P)[0]).parentNode.insertBefore(y, b)
+    }(window, document, 'script');
+  </script>
 
-      analytics.addDestinationMiddleware('Google Analytics', [DMW1]);
-      
-      
-      */
-      analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y");
-      // analytics.identify('test_user_id');
-      analytics.page();
-      // analytics.track('test_provider_event')
-      
-      }}();
-    </script>
+  <script>
+    // initialize the SDK
+    appboy.initialize('8147e9f7-86ba-4ae4-83da-21c7b9dc7318', {
+      baseUrl: "sdk.iad-01.braze.com"
+    });
 
-      <script>
-        /*
-        (function(apiKey){
-            (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
-            v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-                o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-                y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-                z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-    
-                // Call this whenever information about your visitors becomes available
-                // Please use Strings, Numbers, or Bools for value types.
-                pendo.initialize({
-                    visitor: {
-                        id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
-                        // email:        // Recommended if using Pendo Feedback, or NPS Email
-                        // full_name:    // Recommended if using Pendo Feedback
-                        // role:         // Optional
-    
-                        // You can add any additional visitor level key-values here,
-                        // as long as it's not one of the above reserved names.
-                    },
-    
-                    account: {
-                        id:           'ACCOUNT-UNIQUE-ID' // Highly recommended
-                        // name:         // Optional
-                        // is_paying:    // Recommended if using Pendo Feedback
-                        // monthly_value:// Recommended if using Pendo Feedback
-                        // planLevel:    // Optional
-                        // planPrice:    // Optional
-                        // creationDate: // Optional
-    
-                        // You can add any additional account level key-values here,
-                        // as long as it's not one of the above reserved names.
-                    }
-                });
-        })('5b9886bd-c672-4ec8-5d19-01eed141fd6a');
-        */
-    </script>
- 
-   
+    // optionally show all In-App Messages without custom handling
+    appboy.display.automaticallyShowNewInAppMessages();
 
-</head> 
+    // optionally set the current user's External ID
+    if (isLoggedIn) {
+      appboy.changeUser(userIdentifier);
+    }
+
+    // start (or continue) a session
+    appboy.openSession();
+  </script>
 
 
-<body> 
- 
-<p>First form</p>
-<!--[if lte IE 8]>
+
+</head>
+
+
+<body>
+
+  <p>First form</p>
+  <!--[if lte IE 8]>
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 <![endif]-->
- <!-- 
+  <!-- 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 <script>
   hbspt.forms.create({
@@ -97,7 +69,7 @@
 </script>
 -->
 
-<!--
+  <!--
 <h1>Video</h1>
 <br>
 <script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
@@ -177,60 +149,57 @@ var video = VidyardV4.players[0];
  }
 </script>
 -->
-<!--
+  <!--
 <h1>Outgrow quiz</h1>
 <br>
 <div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
 -->
-<h1>First JS page</h1> 
-<a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
+  <h1>First JS page</h1>
+  <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
 
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 
-<a id='quiz_link' 
-   href="https://segment423.outgrow.us/segment423-4?anon_id="
-   title="Quiz!"
-   >Quiz link</a>
+  <a id='quiz_link' href="https://segment423.outgrow.us/segment423-4?anon_id=" title="Quiz!">Quiz link</a>
 
-<script type="text/javascript">
-  // Get anonymous Id from localStorage. Remove the quotes
-  var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
-  // Get quiz link tag
-  var link = document.getElementById("quiz_link")
-  // Get quiz URL from the tag
-  var cur_href = link.getAttribute("href")
-  // Append anonymous Id to the URL
-  link.setAttribute("href", cur_href + anon_id)
-</script>
+  <script type="text/javascript">
+    // Get anonymous Id from localStorage. Remove the quotes
+    var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g, "")
+    // Get quiz link tag
+    var link = document.getElementById("quiz_link")
+    // Get quiz URL from the tag
+    var cur_href = link.getAttribute("href")
+    // Append anonymous Id to the URL
+    link.setAttribute("href", cur_href + anon_id)
+  </script>
 
 
 
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
+  <p>I am building a directory of the sweetest travel destinations.</p>
+  <form name="travel" onsubmit="identify(event)">
+    What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text" />
+    <br><br><br>
+    Any recommendations (cool things to do, places to visit or restaurants to eat)?
+    <br><br>
     <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
+    </textarea>
+    <br><br>
+    Name: <input name="fullname" required="" size="75" type="text" />
+    <br><br>
+    Email: <input name="email" required="" size="75" type="email" />
     <br><br>
     <br><br>
-    <input name="submit" type="submit" value="submit"/>
-</form> 
-<div id="target-container"></div>
+    <input name="submit" type="submit" value="submit" />
+  </form>
+  <div id="target-container"></div>
 
-<script type="text/javascript">
-    function identify(e){
+  <script type="text/javascript">
+    function identify(e) {
       e.preventDefault();
       var form = e.target;
       var email = form["email"].value;
@@ -238,59 +207,60 @@ var video = VidyardV4.players[0];
       var destination = form["destination"].value;
       var details = form["details"].value;
       //var userId = form["userId"].value;
-      
+
       var user = {
-          email: email, 
-          name: fullname, 
-          destination: destination, 
-          details: details
-      };
-        
-       
-      analytics.identify("", {
-            email: email, 
-            name: fullname,
-          }
-        );
-
-
-    analytics.track("Form Submitted", {
-        name: fullname,
         email: email,
+        name: fullname,
         destination: destination,
-        details: details,
-        },
-        {integrations: {
-    All: true,
-    Mixpanel: false,
-    Salesforce: false
-  }}
-        
-        ); 
-       
-        /*
-        {
-            context: {
-              ip: "0.0.0.0",
-              
-                location: { 
-                    city: "San Francisco",
-                    country: "United States",
-                    latitude: 40.2964197,
-                    longitude: -76.9411617 
-                }
-            }
+        details: details
+      };
+
+
+      analytics.identify("", {
+        email: email,
+        name: fullname,
+      });
+
+
+      analytics.track("Form Submitted", {
+          name: fullname,
+          email: email,
+          destination: destination,
+          details: details,
+        }, {
+          integrations: {
+            All: true,
+            Mixpanel: false,
+            Salesforce: false
+          }
         }
-        analytics.track("GA Event v2", {
-          category: "MW Category",
-        }); 
-        analytics.track(details, {
-          category: name,
-        }); 
-        */
-      
+
+      );
+
+      /*
+      {
+          context: {
+            ip: "0.0.0.0",
+            
+              location: { 
+                  city: "San Francisco",
+                  country: "United States",
+                  latitude: 40.2964197,
+                  longitude: -76.9411617 
+              }
+          }
       }
-</script>
-   
-</body> 
+      analytics.track("GA Event v2", {
+        category: "MW Category",
+      }); 
+      analytics.track(details, {
+        category: name,
+      }); 
+      */
+
+    }
+  </script>
+
+</body>
+
 </html>
