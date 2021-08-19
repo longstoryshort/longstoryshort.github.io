@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+
+    <title>Test GTM Page</title> 
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayerNative','GTM-TDR8LNG');</script>
+  <!-- End Google Tag Manager -->
+</head> 
+
+
+<body> 
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBGJ8XD"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<p>First form</p>
+
+<h1>First JS page</h1> 
+<!-- <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a> -->
+<br>
+<br>
+<br>
+<!-- <script type="text/javascript">
+  // Get anonymous Id from localStorage. Remove the quotes
+  var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
+  // Get quiz link tag
+  var link = document.getElementById("quiz_link")
+  // Get quiz URL from the tag
+  var cur_href = link.getAttribute("href")
+  // Append anonymous Id to the URL
+  link.setAttribute("href", cur_href + anon_id)
+</script> -->
+
+<p>I am building a directory of the sweetest travel destinations.</p>  
+<form name="travel" onsubmit="identify(event)">
+     What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text"/> 
+    <br><br><br> 
+    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
+    <br><br> 
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea> 
+    <br><br> 
+    Name: <input name="fullname" required="" size="75" type="text"/> 
+    <br><br> 
+    Email: <input name="email" required="" size="75" type="email"/> 
+    <br><br>
+    <br><br>
+    <input name="submit" type="submit" value="submit"/>
+</form> 
+<div id="target-container"></div>
+
+<script type="text/javascript">
+    function identify(e){
+      e.preventDefault();
+      var form = e.target;
+      var email = form["email"].value;
+      var fullname = form["fullname"].value;
+      var destination = form["destination"].value;
+      var details = form["details"].value;
+      //var userId = form["userId"].value;
+      
+      var user = {
+          email: email, 
+          name: fullname, 
+          destination: destination, 
+          details: details
+      };
+    }
+</script>
+   
+</body> 
+</html>
