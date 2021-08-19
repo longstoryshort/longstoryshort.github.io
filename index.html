@@ -192,21 +192,36 @@ var video = VidyardV4.players[0];
 <div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
 -->
 <h1>First JS page</h1> 
-<a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
 
 
+<a id='gtm_page_link' 
+   href="https://longstoryshort.github.io/index_gtm.html?ajs_aid="
+   title="GTM enabled page"
+   >GTM enabled page</a>
 
-<br>
-<br>
-<br>
-
-
-<a id='quiz_link' 
-   href="https://segment423.outgrow.us/segment423-4?anon_id="
-   title="Quiz!"
-   >Quiz link</a>
 
 <script type="text/javascript">
+  // Get anonymous Id from localStorage. Remove the quotes
+  var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
+  // Get quiz link tag
+  var link = document.getElementById("gtm_page_link")
+  // Get quiz URL from the tag
+  var cur_href = link.getAttribute("href")
+  // Append anonymous Id to the URL
+  link.setAttribute("href", cur_href + anon_id + "some_value")
+</script>
+
+<br>
+<br>
+<br>
+
+
+<!-- <a id='quiz_link' 
+   href="https://segment423.outgrow.us/segment423-4?anon_id="
+   title="Quiz!"
+   >Quiz link</a> -->
+
+<!-- <script type="text/javascript">
   // Get anonymous Id from localStorage. Remove the quotes
   var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g,"")
   // Get quiz link tag
@@ -215,7 +230,7 @@ var video = VidyardV4.players[0];
   var cur_href = link.getAttribute("href")
   // Append anonymous Id to the URL
   link.setAttribute("href", cur_href + anon_id)
-</script>
+</script> -->
 
 
 
