@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Test Sandbox Page</title>
+  <script>
+    ! function () {
+      var analytics = window.analytics = window.analytics || [];
+      if (!analytics.initialize)
+        if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset",
+            "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware",
+            "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"
+          ];
+          analytics.factory = function (e) {
+            return function () {
+              var t = Array.prototype.slice.call(arguments);
+              t.unshift(e);
+              analytics.push(t);
+              return analytics
+            }
+          };
+          for (var e = 0; e < analytics.methods.length; e++) {
+            var key = analytics.methods[e];
+            analytics[key] = analytics.factory(key)
+          }
+          analytics.load = function (key, e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = !0;
+            t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            analytics._loadOptions = e
+          };
+          analytics._writeKey = "Ec8iixgxxjzpglKbxKjESW2JrkOko18y";;
+          analytics.SNIPPET_VERSION = "4.15.3";
+
+          var smw1 = function({payload, next, integrations}) {
+          console.log("Segment fired an event: ", payload.type());
+          if (payload.type()=='page') {
+            payload.obj.properties.mw_prop = 'MW'
+          }
+            next(payload)
+          }
+          analytics.addSourceMiddleware(smw1);
+
+      // var DMW1 = function({ payload, integration, next }) {  var allowlist = ["event1", "event2"]
+      //   if (allowlist.includes(payload.obj.event)) {
+      //     next(payload);
+      //   }
+      // };
+
+      // analytics.addDestinationMiddleware('Google Analytics', [DMW1]);
+
+          analytics.load("Ec8iixgxxjzpglKbxKjESW2JrkOko18y");
+          analytics.page();
+        }
+    }();
+  </script>
+
+
+
+
+</head>
+
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDR8LNG" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <p>First form</p>
+
+  <h1>MW page</h1>
+
+
+
+
+
+
+  <p>I am building a directory of the sweetest travel destinations.</p>
+  <form name="travel" onsubmit="identify(event)">
+    What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text" />
+    <br><br><br>
+    Any recommendations (cool things to do, places to visit or restaurants to eat)?
+    <br><br>
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea>
+    <br><br>
+    Name: <input name="fullname" required="" size="75" type="text" />
+    <br><br>
+    Email: <input name="email" required="" size="75" type="email" />
+    <br><br>
+    <br><br>
+    <input name="submit" type="submit" value="submit" />
+  </form>
+  <div id="target-container"></div>
+
+  <script type="text/javascript">
+    function identify(e) {
+      e.preventDefault();
+      var form = e.target;
+      var email = form["email"].value;
+      var fullname = form["fullname"].value;
+      var destination = form["destination"].value;
+      var details = form["details"].value;
+      //var userId = form["userId"].value;
+
+      var user = {
+        email: email,
+        name: fullname,
+        destination: destination,
+        details: details
+      };
+
+
+      analytics.identify("", {
+        email: email,
+        name: fullname,
+      });
+
+
+      analytics.track("Form Submitted", {
+          name: fullname,
+          email: email,
+          destination: destination,
+          details: details,
+        }, {
+          integrations: {
+            All: true,
+            Mixpanel: false,
+            Salesforce: false
+          }
+        }
+
+      );
+
+      /*
+      {
+          context: {
+            ip: "0.0.0.0",
+            
+              location: { 
+                  city: "San Francisco",
+                  country: "United States",
+                  latitude: 40.2964197,
+                  longitude: -76.9411617 
+              }
+          }
+      }
+      analytics.track("GA Event v2", {
+        category: "MW Category",
+      }); 
+      analytics.track(details, {
+        category: name,
+      }); 
+      */
+
+    }
+  </script>
+
+</body>
+
+</html>

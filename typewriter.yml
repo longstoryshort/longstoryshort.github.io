@@ -4,13 +4,13 @@
 # You can find more documentation on configuring this client in the Segment docs.
 # See: https://segment.com/docs/protocols/typewriter
 client:
-  sdk: analytics.js
-  language: javascript
+  sdk: analytics-ios
+  language: objective-c
 
 trackingPlans:
-  # Tracking Plan: ST
-  # https://app.segment.com/segment-elena/protocols/tracking-plans/rs_1ZjjG9LtuBZzXWArjUlhMyJjPro
-  - id: rs_1ZjjG9LtuBZzXWArjUlhMyJjPro
+  # Tracking Plan: DB tracking plan
+  # https://app.segment.com/segment-elena/protocols/tracking-plans/rs_1sMpgM7SxuudMYR8HKWJcUVrqTz
+  - id: rs_1sMpgM7SxuudMYR8HKWJcUVrqTz
     workspaceSlug: segment-elena
-    path: typewr
+    path: typewr7
 
