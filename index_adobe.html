@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>MW page a.js 1.0</title>
+  <script>
+    ! function () {
+      var analytics = window.analytics = window.analytics || [];
+      if (!analytics.initialize)
+        if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset",
+            "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware",
+            "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"
+          ];
+          analytics.factory = function (e) {
+            return function () {
+              var t = Array.prototype.slice.call(arguments);
+              t.unshift(e);
+              analytics.push(t);
+              return analytics
+            }
+          };
+          for (var e = 0; e < analytics.methods.length; e++) {
+            var key = analytics.methods[e];
+            analytics[key] = analytics.factory(key)
+          }
+          analytics.load = function (key, e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = !0;
+            t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            analytics._loadOptions = e
+          };
+          analytics._writeKey = "QeTePSn9uboADn2HmXmgeuk0M8iQTRaq";;
+          analytics.SNIPPET_VERSION = "4.15.3";
+
+          
+
+          analytics.load("QeTePSn9uboADn2HmXmgeuk0M8iQTRaq");
+          analytics.page();
+        }
+    }();
+  </script>
+
+
+
+
+</head>
+
+
+<body>
+   <p>First form</p>
+
+  <h1>ADOBE page</h1>
+
+  
+  <form name="travel" onsubmit="identify(event)">
+    What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text" />
+    <br><br><br>
+    Any recommendations (cool things to do, places to visit or restaurants to eat)?
+    <br><br>
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea>
+    <br><br>
+    Name: <input name="fullname" required="" size="75" type="text" />
+    <br><br>
+    Email: <input name="email" required="" size="75" type="email" />
+    <br><br>
+    <br><br>
+    <input name="submit" type="submit" value="submit" />
+  </form>
+  <div id="target-container"></div>
+
+  <script type="text/javascript">
+    function identify(e) {
+      e.preventDefault();
+      var form = e.target;
+      var email = form["email"].value;
+      var fullname = form["fullname"].value;
+      var destination = form["destination"].value;
+      var details = form["details"].value;
+      //var userId = form["userId"].value;
+
+      var user = {
+        email: email,
+        name: fullname,
+        destination: destination,
+        details: details
+      };
+
+
+      analytics.identify("", {
+        email: email,
+        name: fullname,
+      });
+
+
+      analytics.track("Form Submitted", {
+          name: fullname,
+          email: email,
+          destination: destination,
+          details: details,
+        }, {
+          integrations: {
+            All: true,
+            Mixpanel: false,
+            Salesforce: false
+          }
+        }
+
+      );
+
+    
+    }
+  </script>
+
+</body>
+
+</html>
