@@ -3,7 +3,9 @@
 <head> 
 
     <title>Test Sandbox Page</title> 
-
+    <script>
+      analytics.user().anonymousId()
+    </script>
    
     <script>
       
@@ -193,11 +195,17 @@ var video = VidyardV4.players[0];
 -->
 <h1>First JS page</h1> 
 
-
+<br>
 <a id='gtm_page_link' 
    href="https://longstoryshort.github.io/index_gtm.html?ajs_aid="
    title="GTM enabled page"
    >GTM enabled page</a>
+   <br>
+<a id='adobe_page_link' 
+   href="https://longstoryshort.github.io/index_adobe.html"
+   title="Adobe Analytics Page (via Segment)"
+   >Adobe Analytics Page (via Segment)</a>
+
 
 
 <script type="text/javascript">
