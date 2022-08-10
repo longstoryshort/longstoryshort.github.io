@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+
+    <title>PEL BRAZE TESTING</title> 
+    
+   
+    <script>
+      
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="fEUpg0GiTKiqJTRDflLOeEk7HB1EmRlV";;analytics.SNIPPET_VERSION="4.15.3";            
+      // // var dmw1 = function({payload, next, integrations}) {
+      // //   console.log("Segment fired an event: ", payload.type());
+      // //   console.log(payload.obj.context.page.referrer)
+      // //   payload.obj.context.page.referrer = 'my referrer value!'
+      // //     next(payload)
+      // //   }
+      // //   analytics.addSourceMiddleware(dmw1);
+
+      // var DMW1 = function({ payload, integration, next }) {  
+      //     if (payload.obj.context.my_key) {
+      //       console.log(payload.obj.context.my_key)
+      //     next(payload);
+      //    }
+      //  };
+
+      // analytics.addDestinationMiddleware('Google Analytics', [DMW1]);
+      
+         
+      analytics.load("fEUpg0GiTKiqJTRDflLOeEk7HB1EmRlV");
+      // analytics.identify('test_user_id');
+      analytics.page();
+      // analytics.track('test_provider_event')
+      
+      }}();
+    </script>
+</head> 
+
+
+<body> 
+ 
+<h1>PEL BRAZE TESTING</h1> 
+
+<br>
+
+<p>I am building a directory of the sweetest travel destinations.</p>  
+<form name="travel" onsubmit="identify(event)">
+     What is your favorite travel destination?
+    <input name="destination" required="" size="81" type="text"/> 
+    <br><br><br> 
+    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
+    <br><br> 
+    <textarea cols="81" name="details" required="" rows="10">
+    </textarea> 
+    <br><br> 
+    Name: <input name="fullname" required="" size="75" type="text"/> 
+    <br><br> 
+    Email: <input name="email" required="" size="75" type="email"/> 
+    <br><br>
+    <br><br>
+    <input name="submit" type="submit" value="submit"/>
+</form> 
+<div id="target-container"></div>
+
+<script type="text/javascript">
+    function identify(e){
+      e.preventDefault();
+      var form = e.target;
+      var email = form["email"].value;
+      var fullname = form["fullname"].value;
+      var destination = form["destination"].value;
+      var details = form["details"].value;
+      //var userId = form["userId"].value;
+      
+      var user = {
+          email: email, 
+          name: fullname, 
+          destination: destination, 
+          details: details
+      };
+    }
+</script>
+   
+</body> 
+</html>
