@@ -3,10 +3,7 @@
 
 <head>
 
-  <title>Test Sandbox Page</title>
-
-
-
+  <title>Braze native page</title>
 
   <script type="text/javascript">
     + function (a, p, P, b, y) {
@@ -32,7 +29,7 @@
 
   <script>
     // initialize the SDK
-    appboy.initialize('8147e9f7-86ba-4ae4-83da-21c7b9dc7318', {
+    appboy.initialize('8923d706-1ea8-400e-a231-dc915710835e', {
       baseUrl: "sdk.iad-01.braze.com"
     });
 
@@ -40,15 +37,13 @@
     appboy.display.automaticallyShowNewInAppMessages();
 
     // optionally set the current user's External ID
-    if (isLoggedIn) {
-      appboy.changeUser(userIdentifier);
-    }
+    // if (isLoggedIn) {
+    //   appboy.changeUser(userIdentifier);
+    // }
 
     // start (or continue) a session
     appboy.openSession();
   </script>
-
-
 
 </head>
 
@@ -56,128 +51,11 @@
 <body>
 
   <p>First form</p>
-  <!--[if lte IE 8]>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-<![endif]-->
-  <!-- 
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-<script>
-  hbspt.forms.create({
-	portalId: "7457584",
-  formId: "714f581e-86b4-4382-ba11-d26b37714101"
-});
-</script>
--->
-
-  <!--
-<h1>Video</h1>
-<br>
-<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
-<img
-  style="width: 100%; margin: auto; display: block;"
-  class="vidyard-player-embed"
-  src="https://play.vidyard.com/moVpmjzws1KqgAaTadxX6C.jpg"
-  data-uuid="moVpmjzws1KqgAaTadxX6C"
-  data-v="4"
-  data-type="inline"
-/>
-
-<script type="text/javascript">
-/*
-window.onVidyardAPI = (vidyardEmbed) => {
- vidyardEmbed.api.addReadyListener((_, player) => {
-
-console.log('player ready:', player.ready());
- console.log(player.uuid);
- // put your code here
-
-}, "moVpmjzws1KqgAaTadxX6C")
-
- }
- */
-</script>
-<script type="text/javascript">
-window.onVidyardAPI = (vidyardEmbed) => {
- vidyardEmbed.api.addReadyListener((_, player) => {
-
-//The below code will send Play, Pause and End Reached events for the first Vidyard player available within your HTML
-
-var video = VidyardV4.players[0];
-
- video.on("play", function() {
-  analytics.track("Video Started", {
-          video_name: video.metadata.name,
-          video_action: 'Play',
-          category: 'Video Events',
-          label: video.metadata.name  
-        },
-        {
-          integrations:
-          {
-            'All':true
-          }
-      }); 
-  }); 
- video.on("pause", function() { 
-  analytics.track("Video Paused", {
-          video_name: video.metadata.name,
-          video_action: 'Pause',
-          category: 'Video Events',
-          label: video.metadata.name
-        },{
-          integrations:
-          {
-            'All':true
-          }
-      }); 
- }); 
- video.on("playerComplete", function() { 
-  analytics.track("Video Completed", {
-          video_name: video.metadata.name,
-          video_action: 'Complete',
-          category: 'Video Events',
-          label: video.metadata.name
-        },{
-          integrations:
-          {
-            'All':true
-          }
-      }); 
- }); 
- 
-}, )
- }
-</script>
--->
-  <!--
-<h1>Outgrow quiz</h1>
-<br>
-<div><div class='op-interactive' id='5f9811e9e76f2a78f666e470' data-title='eap test quiz' data-url='https://segment.outgrow.us/5f9811e9e76f2a78f666e470?vHeight=1' data-width='100%'></div><script src='//dyv6f9ner1ir9.cloudfront.net/assets/js/nloader.js'></script><script>initIframe('5f9811e9e76f2a78f666e470');</script></div>
--->
-  <h1>First JS page</h1>
-  <a href="http://longstoryshort.github.io/ampp.html">AMP page LSS</a>
-
-
-
+  <h1>Braze native page</h1>
+  
   <br>
   <br>
   <br>
-
-
-  <a id='quiz_link' href="https://segment423.outgrow.us/segment423-4?anon_id=" title="Quiz!">Quiz link</a>
-
-  <script type="text/javascript">
-    // Get anonymous Id from localStorage. Remove the quotes
-    var anon_id = localStorage.getItem("ajs_anonymous_id").replace(/"/g, "")
-    // Get quiz link tag
-    var link = document.getElementById("quiz_link")
-    // Get quiz URL from the tag
-    var cur_href = link.getAttribute("href")
-    // Append anonymous Id to the URL
-    link.setAttribute("href", cur_href + anon_id)
-  </script>
-
-
 
   <p>I am building a directory of the sweetest travel destinations.</p>
   <form name="travel" onsubmit="identify(event)">
@@ -216,47 +94,8 @@ var video = VidyardV4.players[0];
       };
 
 
-      analytics.identify("", {
-        email: email,
-        name: fullname,
-      });
 
 
-      analytics.track("Form Submitted", {
-          name: fullname,
-          email: email,
-          destination: destination,
-          details: details,
-        }, {
-          integrations: {
-            All: true,
-            Mixpanel: false,
-            Salesforce: false
-          }
-        }
-
-      );
-
-      /*
-      {
-          context: {
-            ip: "0.0.0.0",
-            
-              location: { 
-                  city: "San Francisco",
-                  country: "United States",
-                  latitude: 40.2964197,
-                  longitude: -76.9411617 
-              }
-          }
-      }
-      analytics.track("GA Event v2", {
-        category: "MW Category",
-      }); 
-      analytics.track(details, {
-        category: name,
-      }); 
-      */
 
     }
   </script>
