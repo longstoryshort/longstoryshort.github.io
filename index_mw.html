@@ -10,7 +10,7 @@
           
           var smw1 = function({payload, next, integrations}) {
           console.log("Source MW says: Segment fired ", payload.type(), " event");
-          
+          next(payload)
           // if (payload.type()=='page') {
           //   payload.obj.properties.mw_prop = 'MW'
             
