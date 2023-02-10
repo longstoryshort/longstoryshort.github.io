@@ -20,7 +20,8 @@
           analytics.addSourceMiddleware(smw1);
           
           var gtm_dmw = function({payload, integration, next}) {
-            if (payload.obj.type == 'track') {
+            if (payload.type() == 'track') {
+              console.log(payload.obj.messageId);
               payload.obj.properties.seg_message_id = payload.obj.messageId;
             } 
             next(payload)
