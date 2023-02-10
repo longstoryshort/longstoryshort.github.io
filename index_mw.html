@@ -51,15 +51,15 @@
            }
           analytics.addSourceMiddleware(smw1);
           
-          var gtm_dmw = function({payload, integration, next}) {
-            if (payload.obj.type == 'track') {
-              payload.obj.properties.seg_message_id = payload.obj.messageId;
-            } 
-            next(payload)
-          }
+          // var gtm_dmw = function({payload, integration, next}) {
+          //   if (payload.obj.type == 'track') {
+          //     payload.obj.properties.seg_message_id = payload.obj.messageId;
+          //   } 
+          //   next(payload)
+          // }
 
 
-          analytics.addDestinationMiddleware('Google Tag Manager', [gtm_dmw]);
+          // analytics.addDestinationMiddleware('Google Tag Manager', [gtm_dmw]);
 
           analytics.load("sVg0vaUpdl4gMrOxSbVM8ojTsB6HcH6n");
           analytics.page();
