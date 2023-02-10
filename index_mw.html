@@ -39,22 +39,27 @@
           analytics._writeKey = "DEPc27HZY18qvH3YSxX6kHGnfBhAq5bb";;
           analytics.SNIPPET_VERSION = "4.15.3";
 
+          
           var smw1 = function({payload, next, integrations}) {
-          console.log("Segment fired an event: ", payload.type());
-          if (payload.type()=='page') {
-            payload.obj.properties.mw_prop = 'MW'
-          }
+          console.log("Source MW says: Segment fired ", payload.type(), " event");
+          
+          // if (payload.type()=='page') {
+          //   payload.obj.properties.mw_prop = 'MW'
+            
+          // }
+          //   next(payload)
+          // }
+          analytics.addSourceMiddleware(smw1);
+          
+          var gtm_dmw = function({payload, integration, next}) {
+            if (payload.obj.type == 'track') {
+              payload.obj.properties.seg_message_id = payload.obj.messageId;
+            } 
             next(payload)
           }
-          analytics.addSourceMiddleware(smw1);
 
-      // var DMW1 = function({ payload, integration, next }) {  var allowlist = ["event1", "event2"]
-      //   if (allowlist.includes(payload.obj.event)) {
-      //     next(payload);
-      //   }
-      // };
 
-      // analytics.addDestinationMiddleware('Google Analytics', [DMW1]);
+          analytics.addDestinationMiddleware('Google Tag Manager', [gtm_dmw]);
 
           analytics.load("DEPc27HZY18qvH3YSxX6kHGnfBhAq5bb");
           analytics.page();
